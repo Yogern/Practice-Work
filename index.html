@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
-  <title>Геометрия 10 • Перпендикулярность прямых и плоскостей (5++)</title>
+  <title>STEM 5++ • Геометрия 10–11 (Вариант 1 и Вариант 2)</title>
 
-  <!-- KaTeX CDN для эталонной академической типографики формул -->
+  <!-- KaTeX для книжной математической типографики -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
@@ -16,38 +16,56 @@
       --spring-smooth: cubic-bezier(0.22, 1, 0.36, 1);
       --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-      /* Light Mode (iOS 18 Daylight Frosted Glass) */
-      --bg-base: #eef2ff;
+      /* Light Mode (Default Apple Liquid Glass) */
+      --bg-base: #dde6f5;
+      --orb-1: rgba(94, 158, 255, 0.65);
+      --orb-2: rgba(168, 122, 255, 0.55);
+      --orb-3: rgba(72, 219, 251, 0.52);
+      --orb-4: rgba(255, 159, 243, 0.42);
+
+      --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.22) 100%);
+      --glass-pill-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.30) 100%);
+      --glass-active-pill: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.68) 100%);
+      --glass-border: rgba(255, 255, 255, 0.65);
+      --glass-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 20px 42px -15px rgba(15, 28, 63, 0.16);
+      --glass-pill-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.95), 0 6px 18px rgba(15, 28, 63, 0.12);
+
       --text-primary: #0f172a;
       --text-secondary: #334155;
       --text-muted: #64748b;
-      --accent-blue: #007aff;
-      --accent-indigo: #5856d6;
-      --accent-emerald: #10b981;
+      --accent-blue: #0066ff;
+      --accent-indigo: #4f46e5;
+      --accent-emerald: #059669;
 
-      --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.62) 0%, rgba(255, 255, 255, 0.28) 100%);
-      --glass-pill-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.24) 100%);
-      --glass-active-pill: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.68) 100%);
-      --glass-border: rgba(255, 255, 255, 0.68);
-      --glass-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.9), 0 20px 42px -15px rgba(15, 23, 42, 0.14);
-
-      /* Российская тетрадь в клетку (Светлая тема) */
-      --notebook-paper: rgba(252, 253, 255, 0.82);
-      --notebook-line: rgba(0, 145, 255, 0.22);
-      --notebook-line-major: rgba(0, 145, 255, 0.34);
-      --notebook-margin: rgba(255, 59, 48, 0.36);
+      /* Российская тетрадь в клетку (24px = 1 клетка) */
+      --paper-bg: rgba(252, 253, 255, 0.82);
+      --grid-line: rgba(0, 145, 255, 0.22);
+      --grid-line-major: rgba(0, 145, 255, 0.34);
+      --margin-line: rgba(255, 59, 48, 0.38);
 
       /* Цвета чертежа (гелевая ручка / карандаш) */
-      --stroke-main: #172554;
-      --stroke-aux: #0284c7;
-      --stroke-accent: #dc2626;
-      --plane-fill-1: rgba(14, 165, 233, 0.12);
-      --plane-fill-2: rgba(99, 102, 241, 0.12);
-      --vertex-dot: #1e3a8a;
+      --ink-main: #162447;
+      --ink-accent: #0055d4;
+      --ink-plane: rgba(0, 110, 255, 0.08);
+      --ink-plane-stroke: #2b579a;
+      --ink-red: #d9381e;
+      --ink-green: #0d8a52;
     }
 
     [data-theme="dark"] {
-      --bg-base: #070913;
+      --bg-base: #090d16;
+      --orb-1: rgba(29, 78, 216, 0.45);
+      --orb-2: rgba(109, 40, 217, 0.42);
+      --orb-3: rgba(14, 116, 144, 0.38);
+      --orb-4: rgba(190, 24, 93, 0.28);
+
+      --glass-bg: linear-gradient(135deg, rgba(30, 41, 59, 0.58) 0%, rgba(15, 23, 42, 0.36) 100%);
+      --glass-pill-bg: linear-gradient(135deg, rgba(30, 41, 59, 0.72) 0%, rgba(15, 23, 42, 0.48) 100%);
+      --glass-active-pill: linear-gradient(135deg, rgba(59, 130, 246, 0.42) 0%, rgba(37, 99, 235, 0.26) 100%);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --glass-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.24), 0 22px 48px -14px rgba(0, 0, 0, 0.55);
+      --glass-pill-shadow: inset 0 1px 1.5px rgba(255, 255, 255, 0.32), 0 6px 20px rgba(0, 0, 0, 0.42);
+
       --text-primary: #f8fafc;
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
@@ -55,25 +73,17 @@
       --accent-indigo: #818cf8;
       --accent-emerald: #34d399;
 
-      --glass-bg: linear-gradient(135deg, rgba(30, 41, 59, 0.62) 0%, rgba(15, 23, 42, 0.38) 100%);
-      --glass-pill-bg: linear-gradient(135deg, rgba(30, 41, 59, 0.65) 0%, rgba(15, 23, 42, 0.42) 100%);
-      --glass-active-pill: linear-gradient(135deg, rgba(56, 189, 248, 0.32) 0%, rgba(99, 102, 241, 0.26) 100%);
-      --glass-border: rgba(255, 255, 255, 0.18);
-      --glass-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.22), 0 22px 46px -15px rgba(0, 0, 0, 0.55);
+      --paper-bg: rgba(15, 20, 32, 0.72);
+      --grid-line: rgba(56, 189, 248, 0.18);
+      --grid-line-major: rgba(56, 189, 248, 0.30);
+      --margin-line: rgba(255, 69, 58, 0.42);
 
-      /* Российская тетрадь в клетку (Темная тема) */
-      --notebook-paper: rgba(18, 22, 32, 0.68);
-      --notebook-line: rgba(56, 189, 248, 0.18);
-      --notebook-line-major: rgba(56, 189, 248, 0.30);
-      --notebook-margin: rgba(248, 113, 113, 0.35);
-
-      /* Цвета чертежа в темной теме */
-      --stroke-main: #e2e8f0;
-      --stroke-aux: #38bdf8;
-      --stroke-accent: #fb7185;
-      --plane-fill-1: rgba(56, 189, 248, 0.14);
-      --plane-fill-2: rgba(129, 140, 248, 0.14);
-      --vertex-dot: #38bdf8;
+      --ink-main: #e2e8f0;
+      --ink-accent: #60a5fa;
+      --ink-plane: rgba(56, 189, 248, 0.09);
+      --ink-plane-stroke: #60a5fa;
+      --ink-red: #f87171;
+      --ink-green: #34d399;
     }
 
     * {
@@ -87,179 +97,200 @@
       width: 100%;
       min-height: 100vh;
       overflow-x: hidden;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
-      background-color: var(--bg-base);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", sans-serif;
       color: var(--text-primary);
-      line-height: 1.5;
+      background-color: var(--bg-base);
       transition: background-color 0.5s var(--spring-smooth), color 0.4s var(--spring-smooth);
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Живой меш-градиент фон (Apple iOS 18 Wallpaper) */
+    /* Живой меш-градиент Apple iOS 18 / visionOS */
     .ambient-wallpaper {
       position: fixed;
       inset: 0;
-      z-index: 0;
+      z-index: -2;
       overflow: hidden;
-      pointer-events: none;
+      background: var(--bg-base);
     }
 
-    .orb {
+    .ambient-orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(75px);
-      opacity: 0.65;
+      filter: blur(68px);
+      opacity: 0.88;
       animation: floatOrb 18s infinite alternate ease-in-out;
-    }
-
-    [data-theme="dark"] .orb {
-      opacity: 0.36;
+      will-change: transform;
     }
 
     .orb-1 {
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, #60a5fa 0%, #3b82f6 65%, transparent 100%);
-      top: -100px;
-      left: -80px;
-    }
-
-    .orb-2 {
       width: 380px;
       height: 380px;
-      background: radial-gradient(circle, #c084fc 0%, #8b5cf6 65%, transparent 100%);
-      top: 25%;
-      right: -110px;
+      background: var(--orb-1);
+      top: -8%;
+      left: -10%;
+    }
+    .orb-2 {
+      width: 440px;
+      height: 440px;
+      background: var(--orb-2);
+      top: 28%;
+      right: -15%;
       animation-delay: -5s;
+      animation-duration: 22s;
     }
-
     .orb-3 {
-      width: 450px;
-      height: 450px;
-      background: radial-gradient(circle, #34d399 0%, #0ea5e9 65%, transparent 100%);
-      bottom: -120px;
+      width: 360px;
+      height: 360px;
+      background: var(--orb-3);
+      bottom: -8%;
       left: 10%;
-      animation-delay: -11s;
+      animation-delay: -9s;
+      animation-duration: 20s;
+    }
+    .orb-4 {
+      width: 290px;
+      height: 290px;
+      background: var(--orb-4);
+      top: 55%;
+      left: -8%;
+      animation-delay: -12s;
     }
 
-    /* Плавающая каустика света за курсором / касанием */
+    @keyframes floatOrb {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(28px, -32px, 0) scale(1.08); }
+      100% { transform: translate3d(-22px, 26px, 0) scale(0.95); }
+    }
+
+    /* Плавающая каустика света за касанием/курсором */
     .caustic-glow {
       position: fixed;
       width: 320px;
       height: 320px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(56, 189, 248, 0.12) 45%, transparent 70%);
       pointer-events: none;
-      z-index: 1;
-      transform: translate(-50%, -50%);
+      z-index: -1;
+      background: radial-gradient(circle, rgba(255,255,255,0.34) 0%, rgba(255,255,255,0) 70%);
+      transform: translate3d(-50%, -50%, 0);
       transition: transform 0.15s ease-out;
       mix-blend-mode: overlay;
     }
 
-    @keyframes floatOrb {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(35px, -30px) scale(1.08); }
-      100% { transform: translate(-25px, 40px) scale(0.95); }
+    /* Контейнер приложения */
+    .app-shell {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: calc(env(safe-area-inset-top, 12px) + 14px) 14px calc(env(safe-area-inset-bottom, 20px) + 86px);
+      position: relative;
     }
 
-    /* Стеклянный динамический остров-капля (Glass Dynamic Island) */
-    .dynamic-island-wrapper {
-      position: fixed;
-      top: calc(env(safe-area-inset-top, 12px) + 10px);
-      left: 0;
-      right: 0;
-      z-index: 1000;
+    /* =====================================================
+       GLASS DYNAMIC ISLAND (СТЕКЛЯННЫЙ ОСТРОВ-КАПЛЯ)
+       ===================================================== */
+    .dynamic-island-wrap {
+      position: sticky;
+      top: calc(env(safe-area-inset-top, 8px) + 8px);
+      z-index: 100;
       display: flex;
       justify-content: center;
       pointer-events: none;
-      filter: url(#liquid-goo);
+      margin-bottom: 10px;
     }
 
     .glass-dynamic-island {
       pointer-events: auto;
-      width: 280px;
-      height: 48px;
+      min-width: 238px;
+      max-width: 94vw;
+      height: 46px;
+      padding: 0 16px;
       border-radius: 9999px;
-      background: var(--glass-bg);
+      background: var(--glass-pill-bg);
       backdrop-filter: blur(30px) saturate(200%);
       -webkit-backdrop-filter: blur(30px) saturate(200%);
       border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow), 0 12px 32px rgba(0, 122, 255, 0.22);
+      box-shadow: var(--glass-shadow), 0 10px 30px rgba(0, 102, 255, 0.18);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 16px;
+      gap: 12px;
       cursor: pointer;
-      opacity: 0;
-      transform: translateY(-30px) scaleX(0.45) scaleY(0.45);
-      transition: all 0.58s var(--spring-bounce);
       user-select: none;
+      opacity: 0;
+      transform: translateY(-24px) scaleX(0.55) scaleY(0.4);
+      filter: blur(14px);
+      transition:
+        opacity 0.45s var(--spring-smooth),
+        transform 0.6s var(--spring-bounce),
+        filter 0.45s var(--spring-smooth),
+        background 0.3s ease;
+      position: absolute;
+      top: 0;
     }
 
-    .glass-dynamic-island.active {
+    .glass-dynamic-island.island-visible {
       opacity: 1;
       transform: translateY(0) scaleX(1) scaleY(1);
-      animation: liquidDropLanding 0.65s var(--spring-bounce);
+      filter: blur(0px);
+      position: relative;
+      animation: liquidDropJelly 0.65s var(--spring-bounce);
     }
 
     .glass-dynamic-island:active {
       transform: scale(0.95);
     }
 
-    @keyframes liquidDropLanding {
-      0% { transform: translateY(-25px) scaleX(0.5) scaleY(1.3); }
-      45% { transform: translateY(4px) scaleX(1.14) scaleY(0.86); }
-      75% { transform: translateY(-2px) scaleX(0.96) scaleY(1.04); }
+    @keyframes liquidDropJelly {
+      0% { transform: translateY(-20px) scaleX(0.6) scaleY(0.5); }
+      45% { transform: translateY(2px) scaleX(1.12) scaleY(0.88); }
+      75% { transform: translateY(-1px) scaleX(0.97) scaleY(1.03); }
       100% { transform: translateY(0) scaleX(1) scaleY(1); }
     }
 
     .island-left {
       display: flex;
       align-items: center;
-      gap: 9px;
-      min-width: 0;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
     .pulse-dot {
-      width: 9px;
-      height: 9px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: #10b981;
-      box-shadow: 0 0 10px #10b981;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulseGreen 2s infinite;
       flex-shrink: 0;
-      animation: pulseGlow 2s infinite;
     }
 
-    @keyframes pulseGlow {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.65; }
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
     }
 
-    .island-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.15;
-      overflow: hidden;
+    .island-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--glass-border);
+      flex-shrink: 0;
     }
 
-    .island-title {
+    .island-cheat {
       font-size: 12px;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-    }
-
-    .island-subtitle {
-      font-size: 10.5px;
-      color: var(--text-secondary);
-      white-space: nowrap;
+      font-weight: 600;
+      color: var(--accent-blue);
+      max-width: 165px;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 175px;
+      white-space: nowrap;
     }
 
     .island-expand-icon {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.35);
       display: flex;
@@ -268,78 +299,88 @@
       flex-shrink: 0;
     }
 
-    /* Основной контейнер приложения */
-    .app-shell {
-      position: relative;
-      z-index: 2;
-      max-width: 560px;
-      margin: 0 auto;
-      padding: calc(env(safe-area-inset-top, 16px) + 14px) 14px calc(env(safe-area-inset-bottom, 24px) + 76px);
+    /* =====================================================
+       ОСНОВНАЯ ШАПКА И КАПСУЛЫ ПЕРЕКЛЮЧЕНИЯ ВАРИАНТОВ
+       ===================================================== */
+    .top-control-deck {
+      position: sticky;
+      top: calc(env(safe-area-inset-top, 8px) + 6px);
+      z-index: 90;
       transform-origin: top center;
-      transition: transform 0.6s var(--spring-smooth), opacity 0.5s var(--spring-smooth), filter 0.55s var(--spring-smooth);
+      transition:
+        transform 0.58s var(--spring-smooth),
+        opacity 0.45s var(--spring-smooth),
+        filter 0.48s var(--spring-smooth),
+        max-height 0.55s var(--spring-smooth),
+        margin-bottom 0.45s var(--spring-smooth);
+      max-height: 320px;
+      margin-bottom: 18px;
     }
 
-    .app-shell.minimized {
-      transform: translateY(-40px) scale(0.08);
+    .top-control-deck.deck-collapsed {
       opacity: 0;
-      filter: blur(22px);
+      transform: translateY(-28px) scaleX(0.38) scaleY(0.22);
+      filter: blur(20px);
       pointer-events: none;
-      max-height: 100vh;
+      max-height: 0;
+      margin-bottom: 0;
       overflow: hidden;
     }
 
-    /* Базовый класс жидкого матового стекла */
-    .liquid-glass {
+    .glass-header-card {
       background: var(--glass-bg);
       backdrop-filter: blur(28px) saturate(190%);
       -webkit-backdrop-filter: blur(28px) saturate(190%);
       border: 1px solid var(--glass-border);
       box-shadow: var(--glass-shadow);
+      border-radius: 28px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
     }
 
-    /* Верхняя шапка */
-    .top-header {
-      border-radius: 28px;
-      padding: 16px 18px;
-      margin-bottom: 14px;
+    .header-top-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      transition: all 0.45s var(--spring-smooth);
+      gap: 10px;
     }
 
-    .brand-group {
+    .brand-cluster {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .grade-badge {
-      width: 44px;
-      height: 44px;
-      border-radius: 15px;
-      background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, #0066ff 0%, #5856d6 100%);
       color: #fff;
       font-weight: 800;
-      font-size: 17px;
+      font-size: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 20px -4px rgba(0, 122, 255, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+      box-shadow: 0 6px 16px rgba(0, 102, 255, 0.32), inset 0 1px 1px rgba(255,255,255,0.45);
       flex-shrink: 0;
+      letter-spacing: -0.5px;
     }
 
-    .header-titles h1 {
-      font-size: 17px;
+    .title-block h1 {
+      font-size: 16px;
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.3px;
+      line-height: 1.2;
     }
 
-    .header-titles p {
-      font-size: 12.5px;
+    .title-block p {
+      font-size: 12px;
       color: var(--text-secondary);
       font-weight: 500;
+      margin-top: 2px;
     }
 
     .header-actions {
@@ -348,204 +389,176 @@
       gap: 8px;
     }
 
-    .icon-btn {
-      width: 40px;
-      height: 40px;
+    .glass-icon-btn {
+      width: 38px;
+      height: 38px;
       border-radius: 9999px;
       border: 1px solid var(--glass-border);
       background: var(--glass-pill-bg);
+      box-shadow: var(--glass-pill-shadow);
       color: var(--text-primary);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.75), 0 6px 16px -4px rgba(0, 0, 0, 0.12);
-      transition: all 0.4s var(--spring-bounce);
+      transition: all 0.45s var(--spring-smooth);
     }
 
-    .icon-btn:hover {
+    .glass-icon-btn:hover {
       transform: translateY(-1px);
     }
 
-    .icon-btn:active {
+    .glass-icon-btn:active {
       transform: scale(0.92);
       background: rgba(255, 255, 255, 0.65);
     }
 
-    /* Парящий переключатель вариантов (Apple Segmented Liquid Pill) */
+    /* Apple Segmented Liquid Pill для Варианта 1 / Варианта 2 */
     .segmented-pill-container {
-      position: sticky;
-      top: calc(env(safe-area-inset-top, 8px) + 8px);
-      z-index: 50;
-      border-radius: 9999px;
-      padding: 5px;
-      margin-bottom: 12px;
+      position: relative;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      background: var(--glass-pill-bg);
-      backdrop-filter: blur(32px) saturate(200%);
-      -webkit-backdrop-filter: blur(32px) saturate(200%);
+      grid-template-columns: 1fr 1fr;
+      padding: 4px;
+      border-radius: 9999px;
+      background: rgba(15, 23, 42, 0.07);
       border: 1px solid var(--glass-border);
-      box-shadow: var(--glass-shadow);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+      user-select: none;
+    }
+
+    [data-theme="dark"] .segmented-pill-container {
+      background: rgba(0, 0, 0, 0.28);
     }
 
     .active-pill-indicator {
       position: absolute;
-      top: 5px;
-      bottom: 5px;
-      left: 5px;
-      width: calc((100% - 10px) / 3);
+      top: 4px;
+      bottom: 4px;
+      left: 4px;
+      width: calc(50% - 4px);
       border-radius: 9999px;
       background: var(--glass-active-pill);
-      border: 1px solid rgba(255, 255, 255, 0.85);
-      box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.95), 0 6px 18px -4px rgba(0, 122, 255, 0.22);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-pill-shadow);
       transition: transform 0.55s var(--spring-bounce);
-      z-index: 0;
-    }
-
-    .active-pill-indicator.squish {
-      transform: scaleX(1.09) scaleY(0.92);
-    }
-
-    .segment-btn {
-      position: relative;
       z-index: 1;
+      pointer-events: none;
+    }
+
+    .active-pill-indicator.squish-moving {
+      transform: scaleX(1.09) scaleY(0.91);
+    }
+
+    .variant-tab-btn {
+      position: relative;
+      z-index: 2;
       border: none;
       background: transparent;
-      padding: 10px 8px;
+      padding: 9px 12px;
       border-radius: 9999px;
       font-family: inherit;
       font-size: 13.5px;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-secondary);
       cursor: pointer;
-      transition: color 0.3s ease, transform 0.3s var(--spring-bounce);
+      transition: color 0.35s ease, transform 0.3s var(--spring-smooth);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      white-space: nowrap;
     }
 
-    .segment-btn.active {
+    .variant-tab-btn.active {
       color: var(--text-primary);
-      font-weight: 700;
     }
 
-    .segment-btn:active {
-      transform: scale(0.95);
+    .variant-tab-btn:active {
+      transform: scale(0.96);
     }
 
-    .variant-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent-blue);
-      opacity: 0.75;
+    .variant-sub-pill {
+      font-size: 10.5px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: rgba(0, 102, 255, 0.12);
+      color: var(--accent-blue);
     }
 
-    /* Навигация по номерам задач внутри выбранного варианта */
-    .task-chips-bar {
+    /* Навигация по номерам задач внутри варианта */
+    .task-pills-scroll {
       display: flex;
-      gap: 7px;
+      align-items: center;
+      gap: 6px;
       overflow-x: auto;
-      padding: 2px 2px 12px;
       scrollbar-width: none;
+      padding-bottom: 2px;
     }
-
-    .task-chips-bar::-webkit-scrollbar {
+    .task-pills-scroll::-webkit-scrollbar {
       display: none;
     }
 
-    .task-chip {
+    .task-filter-btn {
       border: 1px solid var(--glass-border);
-      background: var(--glass-pill-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.25);
       color: var(--text-secondary);
-      padding: 7px 14px;
+      padding: 6px 12px;
       border-radius: 9999px;
-      font-size: 12.5px;
+      font-family: inherit;
+      font-size: 12px;
       font-weight: 600;
-      cursor: pointer;
       white-space: nowrap;
-      transition: all 0.4s var(--spring-bounce);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
+      cursor: pointer;
+      transition: all 0.4s var(--spring-smooth);
     }
 
-    .task-chip.active {
-      background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+    [data-theme="dark"] .task-filter-btn {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .task-filter-btn.active {
+      background: var(--accent-blue);
       color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.5);
-      box-shadow: 0 6px 16px -4px rgba(0, 122, 255, 0.45);
+      border-color: transparent;
+      box-shadow: 0 4px 12px rgba(0, 102, 255, 0.32);
     }
 
-    .task-chip:active {
+    .task-filter-btn:active {
       transform: scale(0.94);
     }
 
-    /* Сводка варианта с доски */
-    .board-summary-banner {
-      border-radius: 22px;
-      padding: 12px 16px;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      font-size: 12.5px;
-    }
-
-    .board-summary-text {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      color: var(--text-secondary);
-    }
-
-    .clean-mode-btn {
-      border: 1px solid var(--glass-border);
-      background: rgba(255, 255, 255, 0.35);
-      color: var(--text-primary);
-      padding: 6px 12px;
-      border-radius: 9999px;
-      font-size: 11.5px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.35s var(--spring-bounce);
-      white-space: nowrap;
-    }
-
-    .clean-mode-btn.active {
-      background: var(--accent-emerald);
-      color: #fff;
-      border-color: transparent;
-    }
-
-    /* Поток карточек задач с бесшовной анимацией смены */
+    /* =====================================================
+       ПОТОК КАРТОЧЕК ЗАДАЧ С АНИМАЦИЕЙ ПЕРЕКЛЮЧЕНИЯ
+       ===================================================== */
     .cards-stream {
       display: flex;
       flex-direction: column;
       gap: 20px;
-      transition: opacity 0.38s var(--spring-smooth), transform 0.42s var(--spring-smooth), filter 0.38s var(--spring-smooth);
+      transition:
+        opacity 0.38s var(--spring-smooth),
+        filter 0.38s var(--spring-smooth),
+        transform 0.38s var(--spring-smooth);
     }
 
-    .cards-stream.switching {
+    .cards-stream.switching-out {
       opacity: 0;
       filter: blur(10px);
       transform: translateY(12px) scale(0.98);
     }
 
-    /* Карточка задачи (Squircle 28px) */
-    .task-card {
+    .problem-glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
       border-radius: 28px;
       overflow: hidden;
-      transition: transform 0.5s var(--spring-smooth), box-shadow 0.5s var(--spring-smooth);
+      transition: transform 0.55s var(--spring-smooth), box-shadow 0.55s var(--spring-smooth);
     }
 
-    .task-card-header {
-      padding: 16px 20px 14px;
+    .problem-card-header {
+      padding: 16px 18px 13px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -553,340 +566,250 @@
       border-bottom: 1px solid var(--glass-border);
     }
 
-    .task-number-group {
+    .problem-badge-group {
       display: flex;
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
     }
 
-    .task-order-pill {
-      background: linear-gradient(135deg, #007aff, #5856d6);
+    .task-num-pill {
+      padding: 5px 12px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #0066ff 0%, #4f46e5 100%);
       color: #fff;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
-      padding: 4px 11px;
+      box-shadow: 0 4px 10px rgba(0, 102, 255, 0.25);
+    }
+
+    .textbook-ref-pill {
+      padding: 4px 10px;
       border-radius: 9999px;
-      box-shadow: 0 4px 10px rgba(0, 122, 255, 0.3);
-    }
-
-    .task-book-num {
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .task-topic-tag {
-      font-size: 11.5px;
-      font-weight: 600;
+      background: rgba(0, 102, 255, 0.11);
       color: var(--accent-blue);
-      background: rgba(0, 122, 255, 0.1);
-      padding: 3px 9px;
-      border-radius: 9999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      border: 1px solid rgba(0, 102, 255, 0.2);
     }
 
-    .card-actions {
+    .topic-tag {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .card-tools {
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    .mini-glass-btn {
+    .tool-pill-btn {
       border: 1px solid var(--glass-border);
       background: var(--glass-pill-bg);
+      box-shadow: var(--glass-pill-shadow);
       color: var(--text-primary);
-      padding: 6px 11px;
       border-radius: 9999px;
+      padding: 6px 11px;
+      font-family: inherit;
       font-size: 11.5px;
       font-weight: 600;
       display: inline-flex;
       align-items: center;
       gap: 5px;
       cursor: pointer;
-      transition: all 0.35s var(--spring-bounce);
+      transition: all 0.4s var(--spring-smooth);
     }
 
-    .mini-glass-btn:active {
+    .tool-pill-btn:active {
       transform: scale(0.94);
     }
 
-    /* Условие задачи (скрываемое в режиме «Чистый вид в тетрадь») */
-    .problem-statement {
-      padding: 12px 20px;
-      font-size: 13.5px;
-      color: var(--text-secondary);
-      background: rgba(255, 255, 255, 0.18);
-      border-bottom: 1px solid var(--glass-border);
-      transition: all 0.35s ease;
-    }
-
-    body.clean-notebook-view .problem-statement {
-      display: none;
-    }
-
-    /* ТЕТРАДНЫЙ ЛИСТ В КЛЕТКУ (Strict Grid System 24px = 1 клетка) */
-    .russian-notebook-sheet {
+    /* =====================================================
+       РОССИЙСКАЯ ТЕТРАДЬ В КЛЕТКУ (ШАГ СЕТКИ СТРОГО 24PX)
+       ===================================================== */
+    .notebook-sheet {
       position: relative;
-      background-color: var(--notebook-paper);
+      background-color: var(--paper-bg);
       background-image:
-        linear-gradient(to right, var(--notebook-line) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--notebook-line) 1px, transparent 1px),
-        linear-gradient(to right, var(--notebook-line-major) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--notebook-line-major) 1px, transparent 1px);
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to right, var(--grid-line-major) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line-major) 1px, transparent 1px);
       background-size:
         24px 24px,
         24px 24px,
         120px 120px,
         120px 120px;
       background-position: 0 0;
-      padding: 24px 36px 24px 24px;
+      padding: 20px 28px 24px 20px;
     }
 
-    /* Красная линия полей российской школьной тетради */
-    .russian-notebook-sheet::after {
+    /* Красная линия полей российской тетради */
+    .notebook-sheet::after {
       content: "";
       position: absolute;
       top: 0;
       bottom: 0;
-      right: 24px;
+      right: 22px;
       width: 1.5px;
-      background: var(--notebook-margin);
+      background: var(--margin-line);
       pointer-events: none;
     }
 
-    /* Контейнер чертежа SVG строго в узлах сетки 24px */
-    .drawing-box {
-      position: relative;
-      width: 100%;
-      margin-bottom: 18px;
+    .statement-banner {
+      margin-bottom: 16px;
+      padding: 10px 14px;
       border-radius: 16px;
-      border: 1px solid rgba(0, 145, 255, 0.28);
-      background: rgba(255, 255, 255, 0.22);
-      overflow: hidden;
-      cursor: zoom-in;
-      transition: transform 0.4s var(--spring-smooth), box-shadow 0.4s var(--spring-smooth);
-    }
-
-    .drawing-box:hover {
-      box-shadow: 0 10px 25px -8px rgba(0, 122, 255, 0.22);
-    }
-
-    .drawing-toolbar {
-      position: absolute;
-      top: 8px;
-      left: 10px;
-      right: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      pointer-events: none;
-      z-index: 3;
-    }
-
-    .grid-snap-badge {
-      font-size: 10.5px;
-      font-weight: 700;
-      padding: 3px 9px;
-      border-radius: 9999px;
-      background: var(--glass-pill-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
+      background: rgba(0, 102, 255, 0.06);
+      border-left: 3.5px solid var(--accent-blue);
+      font-size: 13.5px;
+      line-height: 1.5;
       color: var(--text-secondary);
-      pointer-events: auto;
     }
 
-    .zoom-hint-pill {
-      font-size: 10.5px;
-      font-weight: 600;
-      padding: 3px 9px;
-      border-radius: 9999px;
-      background: var(--glass-pill-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
-      color: var(--accent-blue);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      pointer-events: auto;
-    }
-
-    .geometry-svg {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    /* Стили линий и подписей внутри SVG на 5++ */
-    .svg-main-line {
-      stroke: var(--stroke-main);
-      stroke-width: 2.2px;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      fill: none;
-    }
-
-    .svg-hidden-line {
-      stroke: var(--stroke-main);
-      stroke-width: 1.8px;
-      stroke-dasharray: 6, 4;
-      stroke-linecap: round;
-      fill: none;
-      opacity: 0.78;
-    }
-
-    .svg-aux-line {
-      stroke: var(--stroke-aux);
-      stroke-width: 1.8px;
-      stroke-dasharray: 6, 4;
-      stroke-linecap: round;
-      fill: none;
-    }
-
-    .svg-accent-line {
-      stroke: var(--stroke-accent);
-      stroke-width: 2.2px;
-      stroke-linecap: round;
-      fill: none;
-    }
-
-    .svg-right-angle {
-      stroke: var(--stroke-aux);
-      stroke-width: 1.5px;
-      fill: rgba(0, 122, 255, 0.12);
-    }
-
-    .svg-plane-1 {
-      fill: var(--plane-fill-1);
-      stroke: var(--stroke-main);
-      stroke-width: 1.8px;
-      stroke-linejoin: round;
-    }
-
-    .svg-plane-2 {
-      fill: var(--plane-fill-2);
-      stroke: var(--stroke-main);
-      stroke-width: 1.8px;
-      stroke-linejoin: round;
-    }
-
-    .svg-vertex {
-      fill: var(--vertex-dot);
-      stroke: #ffffff;
-      stroke-width: 1.4px;
-    }
-
-    .svg-label {
-      font-family: "Times New Roman", Times, Georgia, serif;
-      font-style: italic;
-      font-weight: 700;
-      font-size: 16px;
-      fill: var(--stroke-main);
-      user-select: none;
-    }
-
-    .svg-metric {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      font-size: 11.5px;
-      font-weight: 700;
-      fill: var(--stroke-accent);
-      user-select: none;
-    }
-
-    .svg-coord-tag {
-      font-family: "SF Mono", Menlo, monospace;
-      font-size: 9.5px;
-      fill: var(--accent-blue);
-      opacity: 0;
-      transition: opacity 0.25s ease;
-      pointer-events: none;
-    }
-
-    body.show-grid-coords .svg-coord-tag,
-    .modal-body.show-grid-coords .svg-coord-tag {
-      opacity: 1;
-    }
-
-    /* Академическая структура: Дано / Доказать / Найти / Решение / Ответ */
-    .academic-grid {
+    /* Сетка Дано / Доказать + Чертеж */
+    .academic-top-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 12px;
-      margin-bottom: 14px;
+      gap: 16px;
+      margin-bottom: 18px;
     }
 
-    @media (min-width: 440px) {
-      .academic-grid {
-        grid-template-columns: 1fr 1fr;
+    @media (min-width: 640px) {
+      .academic-top-grid {
+        grid-template-columns: 5fr 7fr;
+        align-items: start;
       }
     }
 
-    .academic-box {
-      padding: 10px 14px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.42);
-      border: 1px solid rgba(0, 145, 255, 0.22);
-    }
-
-    [data-theme="dark"] .academic-box {
-      background: rgba(15, 23, 42, 0.5);
-    }
-
-    .academic-title {
-      font-size: 12px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--accent-blue);
-      margin-bottom: 4px;
-    }
-
-    .academic-content {
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .solution-section-title {
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--accent-indigo);
-      margin: 12px 0 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .steps-list {
-      list-style: none;
+    .dano-box {
+      background: rgba(255, 255, 255, 0.46);
+      border: 1px solid var(--glass-border);
+      border-radius: 18px;
+      padding: 14px 16px;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
-    .step-item {
-      display: flex;
-      gap: 10px;
-      font-size: 14.2px;
-      line-height: 1.6;
-      align-items: flex-start;
+    [data-theme="dark"] .dano-box {
+      background: rgba(15, 23, 42, 0.48);
     }
 
-    .step-num {
-      min-width: 24px;
-      height: 24px;
-      border-radius: 7px;
-      background: rgba(0, 122, 255, 0.14);
+    .academic-section-label {
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
       color: var(--accent-blue);
-      font-weight: 700;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dano-list {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: var(--text-primary);
+    }
+
+    .dano-divider {
+      height: 1.5px;
+      background: var(--ink-main);
+      opacity: 0.25;
+      margin: 4px 0;
+    }
+
+    /* Контейнер SVG чертежа с идеальным шагом 24px */
+    .blueprint-frame {
+      position: relative;
+      border-radius: 18px;
+      border: 1px solid var(--glass-border);
+      background-color: var(--paper-bg);
+      box-shadow: inset 0 1px 2px rgba(255,255,255,0.6), 0 6px 18px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      cursor: zoom-in;
+      transition: transform 0.4s var(--spring-smooth), box-shadow 0.4s var(--spring-smooth);
+    }
+
+    .blueprint-frame:hover {
+      transform: scale(1.01);
+      box-shadow: 0 12px 28px rgba(0, 102, 255, 0.14);
+    }
+
+    .blueprint-frame:active {
+      transform: scale(0.985);
+    }
+
+    .blueprint-svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .blueprint-zoom-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--glass-pill-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      pointer-events: none;
+    }
+
+    /* Шаги Решения / Доказательства */
+    .solution-block {
+      background: rgba(255, 255, 255, 0.42);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    [data-theme="dark"] .solution-block {
+      background: rgba(15, 23, 42, 0.45);
+    }
+
+    .solution-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14.5px;
+      line-height: 1.65;
+    }
+
+    .step-index {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      background: rgba(0, 102, 255, 0.12);
+      color: var(--accent-blue);
       font-size: 12.5px;
-      display: inline-flex;
+      font-weight: 800;
+      display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 1px;
       flex-shrink: 0;
+      margin-top: 2px;
     }
 
     .step-text {
@@ -894,96 +817,60 @@
       overflow-x: auto;
     }
 
-    .justification {
+    .step-reason {
       color: var(--text-secondary);
-      font-size: 13.2px;
+      font-size: 13.5px;
     }
 
-    .answer-banner {
-      margin-top: 16px;
-      padding: 12px 16px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(16, 185, 129, 0.16) 0%, rgba(0, 122, 255, 0.14) 100%);
-      border: 1.5px solid rgba(16, 185, 129, 0.45);
+    /* Блок Ответа */
+    .answer-capsule {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.16) 0%, rgba(5, 150, 105, 0.08) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.35);
     }
 
     .answer-label {
       font-size: 12.5px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
       color: var(--accent-emerald);
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
 
     .answer-value {
-      font-size: 15px;
+      font-size: 15.5px;
       font-weight: 800;
       color: var(--text-primary);
     }
 
-    /* Плавающая нижняя стеклянная панель быстрого доступа */
-    .floating-bottom-dock {
-      position: fixed;
-      bottom: calc(env(safe-area-inset-bottom, 12px) + 12px);
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 90;
-      border-radius: 9999px;
-      padding: 6px 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.5s var(--spring-bounce);
+    /* Режим «Чистая тетрадь» для удобного переписывания */
+    body.clean-notebook-mode .problem-glass-card {
+      background: var(--paper-bg);
+      backdrop-filter: none;
     }
-
-    .floating-bottom-dock.hidden {
-      transform: translateX(-50%) translateY(100px) scale(0.8);
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .dock-pill-btn {
-      border: none;
+    body.clean-notebook-mode .dano-box,
+    body.clean-notebook-mode .solution-block {
       background: transparent;
-      color: var(--text-primary);
-      padding: 8px 13px;
-      border-radius: 9999px;
-      font-family: inherit;
-      font-size: 12.5px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.35s var(--spring-bounce);
-      white-space: nowrap;
+      border-color: rgba(0, 145, 255, 0.28);
     }
 
-    .dock-pill-btn:hover {
-      background: rgba(255, 255, 255, 0.28);
-    }
-
-    .dock-pill-btn:active {
-      transform: scale(0.93);
-    }
-
-    .dock-divider {
-      width: 1px;
-      height: 20px;
-      background: var(--glass-border);
-    }
-
-    /* Полноэкранное модальное окно зума чертежа по клеточкам */
+    /* =====================================================
+       МОДАЛЬНОЕ ОКНО ДЕТАЛЬНОГО ЗУМА ЧЕРТЕЖА ПО КЛЕТОЧКАМ
+       ===================================================== */
     .zoom-modal-backdrop {
       position: fixed;
       inset: 0;
-      z-index: 2000;
-      background: rgba(15, 23, 42, 0.55);
+      z-index: 200;
+      background: rgba(10, 15, 28, 0.62);
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       display: flex;
@@ -992,7 +879,7 @@
       padding: 16px;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.4s var(--spring-smooth);
+      transition: opacity 0.38s var(--spring-smooth);
     }
 
     .zoom-modal-backdrop.open {
@@ -1002,10 +889,13 @@
 
     .zoom-modal-card {
       width: 100%;
-      max-width: 680px;
+      max-width: 720px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
       border-radius: 28px;
       overflow: hidden;
-      transform: scale(0.9) translateY(20px);
+      transform: scale(0.92) translateY(16px);
       transition: transform 0.45s var(--spring-bounce);
     }
 
@@ -1013,7 +903,7 @@
       transform: scale(1) translateY(0);
     }
 
-    .modal-header {
+    .zoom-modal-header {
       padding: 14px 18px;
       display: flex;
       align-items: center;
@@ -1021,892 +911,943 @@
       border-bottom: 1px solid var(--glass-border);
     }
 
-    .modal-title {
+    .zoom-modal-title {
       font-size: 15px;
       font-weight: 700;
     }
 
-    .modal-body {
-      padding: 24px;
-      overflow: auto;
-      max-height: 75vh;
-    }
-
-    /* Стеклянное уведомление о копировании */
-    .glass-toast {
-      position: fixed;
-      top: calc(env(safe-area-inset-top, 16px) + 18px);
-      left: 50%;
-      transform: translateX(-50%) translateY(-80px) scale(0.9);
-      z-index: 3000;
-      padding: 10px 18px;
-      border-radius: 9999px;
-      font-size: 13px;
-      font-weight: 600;
+    .zoom-controls-bar {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+    }
+
+    .zoom-viewport {
+      width: 100%;
+      max-height: 70vh;
+      overflow: auto;
+      background: var(--paper-bg);
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .zoom-svg-stage {
+      width: 100%;
+      transition: width 0.3s var(--spring-smooth);
+    }
+
+    /* Всплывающее уведомление скопированного текста */
+    .glass-toast {
+      position: fixed;
+      bottom: calc(env(safe-area-inset-bottom, 16px) + 74px);
+      left: 50%;
+      transform: translateX(-50%) translateY(24px) scale(0.9);
+      z-index: 250;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      background: var(--glass-pill-bg);
+      backdrop-filter: blur(24px) saturate(190%);
+      -webkit-backdrop-filter: blur(24px) saturate(190%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      font-size: 13px;
+      font-weight: 600;
       opacity: 0;
       pointer-events: none;
-      transition: all 0.45s var(--spring-bounce);
+      transition: all 0.4s var(--spring-bounce);
     }
 
     .glass-toast.show {
-      transform: translateX(-50%) translateY(0) scale(1);
       opacity: 1;
+      transform: translateX(-50%) translateY(0) scale(1);
     }
 
-    .katex {
-      font-size: 1.03em;
+    /* Нижний плавающий док быстрого управления */
+    .bottom-floating-dock {
+      position: fixed;
+      bottom: calc(env(safe-area-inset-bottom, 12px) + 12px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 95;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 9999px;
+      background: var(--glass-pill-bg);
+      backdrop-filter: blur(28px) saturate(200%);
+      -webkit-backdrop-filter: blur(28px) saturate(200%);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
     }
+
+    .dock-pill-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-primary);
+      padding: 7px 12px;
+      border-radius: 9999px;
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.35s var(--spring-smooth);
+      white-space: nowrap;
+    }
+
+    .dock-pill-btn.active-dock {
+      background: rgba(0, 102, 255, 0.15);
+      color: var(--accent-blue);
+    }
+
+    .dock-pill-btn:active {
+      transform: scale(0.93);
+    }
+
+    /* Стили математических подписей на SVG-чертежах */
+    .svg-math-label {
+      font-family: 'Times New Roman', Georgia, serif;
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 700;
+      fill: var(--ink-main);
+      user-select: none;
+    }
+
+    .svg-math-sub {
+      font-size: 11px;
+    }
+
+    .svg-caption-label {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      font-size: 11.5px;
+      font-weight: 700;
+      fill: var(--ink-accent);
+    }
+
+    .katex { font-size: 1.04em !important; }
+    .katex-display { margin: 0.45em 0 !important; overflow-x: auto; overflow-y: hidden; }
   </style>
 </head>
 <body>
 
-  <!-- SVG-фильтр жидкой капли (Liquid Metaball Morphing) и маркеры для чертежей -->
-  <svg width="0" height="0" style="position:absolute; pointer-events:none;" aria-hidden="true">
+  <!-- Скрытый SVG-фильтр метаболов жидкой капли (Liquid Goo) -->
+  <svg width="0" height="0" style="position:absolute; pointer-events:none;">
     <defs>
       <filter id="liquid-goo">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
-        <feColorMatrix in="blur" mode="matrix"
-          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="goo" />
+        <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="goo" />
         <feComposite in="SourceGraphic" in2="goo" operator="atop" />
       </filter>
     </defs>
   </svg>
 
-  <!-- Живой меш-градиент фон -->
-  <div class="ambient-wallpaper">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
+  <!-- Живой фон Apple iOS 18 / visionOS -->
+  <div class="ambient-wallpaper" aria-hidden="true">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+    <div class="ambient-orb orb-4"></div>
   </div>
-  <div class="caustic-glow" id="causticGlow"></div>
+  <div class="caustic-glow" id="causticGlow" aria-hidden="true"></div>
 
-  <!-- Стеклянный динамический остров-капля (Glass Dynamic Island) -->
-  <div class="dynamic-island-wrapper">
-    <div class="glass-dynamic-island" id="glassDynamicIsland" role="button" tabindex="0" aria-label="Развернуть решения">
-      <div class="island-left">
-        <span class="pulse-dot"></span>
-        <div class="island-text">
-          <span class="island-title" id="islandVariantLabel">В-1 • Решено на 5++</span>
-          <span class="island-subtitle" id="islandQuickAnswer">№123: α ∥ β • №125: 9 см</span>
+  <main class="app-shell">
+
+    <!-- СТЕКЛЯННЫЙ ОСТРОВ-КАПЛЯ (DYNAMIC ISLAND В СВЕРНУТОМ РЕЖИМЕ) -->
+    <div class="dynamic-island-wrap">
+      <div class="glass-dynamic-island" id="glassDynamicIsland" role="button" tabindex="0" aria-label="Развернуть панель вариантов">
+        <div class="island-left">
+          <span class="pulse-dot"></span>
+          <span id="islandVariantText">Вар. 1 • Решено на 5++</span>
         </div>
-      </div>
-      <div class="island-expand-icon" title="Развернуть">
-        <!-- SF Symbol: arrow.up.left.and.arrow.down.right -->
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 3 21 3 21 9"></polyline>
-          <polyline points="9 21 3 21 3 15"></polyline>
-          <line x1="21" y1="3" x2="14" y2="10"></line>
-          <line x1="3" y1="21" x2="10" y2="14"></line>
-        </svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- Всплывающее стеклянное уведомление -->
-  <div class="glass-toast liquid-glass" id="glassToast">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="20 6 9 17 4 12"></polyline>
-    </svg>
-    <span id="glassToastText">Решение скопировано в буфер обмена</span>
-  </div>
-
-  <!-- Основной интерфейс приложения -->
-  <main class="app-shell" id="appShell">
-
-    <!-- Шапка приложения -->
-    <header class="top-header liquid-glass">
-      <div class="brand-group">
-        <div class="grade-badge">5++</div>
-        <div class="header-titles">
-          <h1>Стереометрия • §1</h1>
-          <p>Перпендикулярность прямых и плоскостей</p>
-        </div>
-      </div>
-      <div class="header-actions">
-        <!-- Переключатель координат узлов сетки 24px -->
-        <button class="icon-btn" id="toggleCoordsBtn" title="Показать узлы клеток (k×24)">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="18" height="18" rx="2"></rect>
-            <line x1="3" y1="9" x2="21" y2="9"></line>
-            <line x1="3" y1="15" x2="21" y2="15"></line>
-            <line x1="9" y1="3" x2="9" y2="21"></line>
-            <line x1="15" y1="3" x2="15" y2="21"></line>
-          </svg>
-        </button>
-        <!-- Переключатель темы Светлая / Темная -->
-        <button class="icon-btn" id="themeToggleBtn" title="Сменить тему">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="themeIcon">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <!-- Кнопка сворачивания в Стеклянный Остров-Каплю (SF Symbol: arrow.down.right.and.arrow.up.left) -->
-        <button class="icon-btn" id="minimizeToIslandBtn" title="Свернуть в Стеклянный Остров">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="4 14 10 14 10 20"></polyline>
-            <polyline points="20 10 14 10 14 4"></polyline>
-            <line x1="14" y1="10" x2="21" y2="3"></line>
+        <div class="island-divider"></div>
+        <div class="island-cheat" id="islandQuickAnswer">№1–5 • Атанасян</div>
+        <div class="island-expand-icon" title="Развернуть">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
             <line x1="3" y1="21" x2="10" y2="14"></line>
           </svg>
-        </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ВЕРХНЯЯ ПАНЕЛЬ УПРАВЛЕНИЯ И ПЕРЕКЛЮЧАТЕЛЬ ВАРИАНТОВ -->
+    <header class="top-control-deck" id="topControlDeck">
+      <div class="glass-header-card">
+        <div class="header-top-row">
+          <div class="brand-cluster">
+            <div class="grade-badge">5++</div>
+            <div class="title-block">
+              <h1>Геометрия 10–11 • Перпендикулярность</h1>
+              <p>Атанасян Л. С. • Стереометрия • Сетка 24px (1 кл.)</p>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <!-- Переключатель Темы Светлая/Темная -->
+            <button class="glass-icon-btn" id="themeToggleBtn" title="Тема оформления" aria-label="Переключить тему">
+              <svg id="themeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+
+            <!-- Кнопка сворачивания в Стеклянный Остров-Каплю (SF Symbol: arrow.down.right.and.arrow.up.left) -->
+            <button class="glass-icon-btn" id="collapseIslandBtn" title="Свернуть в Стеклянный Остров" aria-label="Свернуть в Стеклянный Остров">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 14 10 14 10 20"></polyline>
+                <polyline points="20 10 14 10 14 4"></polyline>
+                <line x1="14" y1="10" x2="21" y2="3"></line>
+                <line x1="3" y1="21" x2="10" y2="14"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Apple Segmented Liquid Pill: В-1 / В-2 -->
+        <div class="segmented-pill-container" role="tablist" aria-label="Выбор варианта">
+          <div class="active-pill-indicator" id="activePillIndicator"></div>
+          <button class="variant-tab-btn active" id="tabVar1" role="tab" aria-selected="true" data-variant="1">
+            <span>Вариант 1 (В-1)</span>
+            <span class="variant-sub-pill">5 задач</span>
+          </button>
+          <button class="variant-tab-btn" id="tabVar2" role="tab" aria-selected="false" data-variant="2">
+            <span>Вариант 2 (В-2)</span>
+            <span class="variant-sub-pill">5 задач</span>
+          </button>
+        </div>
+
+        <!-- Фильтр по номерам заданий варианта -->
+        <div class="task-pills-scroll" id="taskFilterBar" aria-label="Навигация по задачам"></div>
       </div>
     </header>
 
-    <!-- Парящая капсула переключения вариантов (Apple Segmented Liquid Pill) -->
-    <nav class="segmented-pill-container" aria-label="Выбор варианта">
-      <div class="active-pill-indicator" id="activePillIndicator"></div>
-      <button class="segment-btn active" data-variant="v1">
-        <span class="variant-dot"></span>
-        <span>Вариант 1 (В-1)</span>
-      </button>
-      <button class="segment-btn" data-variant="v2">
-        <span class="variant-dot" style="background:#5856d6;"></span>
-        <span>Вариант 2 (В-2)</span>
-      </button>
-      <button class="segment-btn" data-variant="extra">
-        <span class="variant-dot" style="background:#10b981;"></span>
-        <span>Доп. (№120–121)</span>
-      </button>
-    </nav>
-
-    <!-- Быстрый фильтр по номерам задач внутри активного варианта -->
-    <div class="task-chips-bar" id="taskChipsBar"></div>
-
-    <!-- Инфо-панель списка задач с доски + кнопка «Чистый вид» -->
-    <div class="board-summary-banner liquid-glass">
-      <div class="board-summary-text" id="boardSummaryText">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-        </svg>
-        <span>В-1 с доски: №123, №133, №119(а), №125, №129(б)</span>
-      </div>
-      <button class="clean-mode-btn" id="cleanModeBtn">Чистый вид</button>
-    </div>
-
-    <!-- Поток карточек с решениями -->
+    <!-- ПОТОК КАРТОЧЕК С РЕШЕНИЯМИ И ЧЕРТЕЖАМИ -->
     <section class="cards-stream" id="cardsStream"></section>
 
   </main>
 
-  <!-- Нижний плавающий стеклянный док -->
-  <div class="floating-bottom-dock liquid-glass" id="floatingDock">
-    <button class="dock-pill-btn" id="dockMinimizeBtn">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="4 14 10 14 10 20"></polyline>
-        <polyline points="20 10 14 10 14 4"></polyline>
-        <line x1="14" y1="10" x2="21" y2="3"></line>
-        <line x1="3" y1="21" x2="10" y2="14"></line>
+  <!-- НИЖНИЙ ПЛАВАЮЩИЙ ДОК -->
+  <nav class="bottom-floating-dock" aria-label="Быстрые действия">
+    <button class="dock-pill-btn" id="cleanViewToggleBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="3" y1="9" x2="21" y2="9"></line>
+        <line x1="9" y1="21" x2="9" y2="9"></line>
       </svg>
-      <span>В каплю</span>
+      <span>Чистый вид</span>
     </button>
-    <div class="dock-divider"></div>
-    <button class="dock-pill-btn" id="dockCopyAllBtn">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <button class="dock-pill-btn" id="copyAllVariantBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
       </svg>
       <span>Скопировать вариант</span>
     </button>
-  </div>
+    <button class="dock-pill-btn" id="dockIslandToggleBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"></circle>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+      <span id="dockIslandLabel">Остров</span>
+    </button>
+  </nav>
 
-  <!-- Полноэкранное модальное окно детального просмотра чертежа по клеткам -->
-  <div class="zoom-modal-backdrop" id="zoomModalBackdrop">
-    <div class="zoom-modal-card liquid-glass">
-      <div class="modal-header">
-        <span class="modal-title" id="zoomModalTitle">Чертеж по клеткам (шаг 24px = 1 кл.)</span>
-        <div style="display:flex; gap:8px;">
-          <button class="mini-glass-btn" id="modalToggleCoordsBtn">Координаты клеток</button>
-          <button class="mini-glass-btn" id="closeZoomModalBtn">Закрыть ✕</button>
+  <!-- МОДАЛЬНОЕ ОКНО ЗУМА ЧЕРТЕЖА -->
+  <div class="zoom-modal-backdrop" id="zoomModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="zoomModalTitle">
+    <div class="zoom-modal-card">
+      <div class="zoom-modal-header">
+        <div>
+          <div class="zoom-modal-title" id="zoomModalTitle">Чертеж по клеткам (1 кл. = 24px)</div>
+          <div style="font-size: 11.5px; color: var(--text-muted);">Все вершины строго в узлах сетки (X = k·24, Y = m·24)</div>
+        </div>
+        <div class="zoom-controls-bar">
+          <button class="tool-pill-btn" data-zoom="100">100%</button>
+          <button class="tool-pill-btn" data-zoom="140">140%</button>
+          <button class="tool-pill-btn" data-zoom="180">180%</button>
+          <button class="glass-icon-btn" id="closeZoomModalBtn" aria-label="Закрыть окно">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
         </div>
       </div>
-      <div class="modal-body russian-notebook-sheet" id="zoomModalBody"></div>
+      <div class="zoom-viewport">
+        <div class="zoom-svg-stage" id="zoomSvgStage"></div>
+      </div>
     </div>
   </div>
 
+  <!-- ВСПЛЫВАЮЩИЙ ТОСТ -->
+  <div class="glass-toast" id="glassToast">Решение скопировано в буфер обмена</div>
+
   <script>
-    /**
-     * СТРОГАЯ СИСТЕМА КЛЕТКИ РОССИЙСКОЙ ТЕТРАДИ:
-     * Все координаты вершин, концов отрезков, прямых углов и центров
-     * строго кратны шагу сетки GRID_SIZE = 24 (X = k * 24, Y = m * 24).
-     */
+    // =========================================================================
+    // 1. СТРОГАЯ СИСТЕМА КООРДИНАТ ТЕТРАДНОЙ КЛЕТКИ (GRID_SIZE = 24)
+    // =========================================================================
     const GRID_SIZE = 24;
+    const G = (cells) => cells * GRID_SIZE;
 
-    /* Генераторы эталонных SVG-чертежей (viewBox="0 0 384 264", т.е. 16 × 11 клеток по 24px) */
-    const SVG_DRAWINGS = {
-      /* Чертеж к № 123: a ⊥ α, a ⊥ β => α ∥ β */
-      task123: () => `
-        <svg class="geometry-svg" viewBox="0 0 384 264" xmlns="http://www.w3.org/2000/svg">
-          <!-- Плоскость α: (48,48)[2,2] - (216,48)[9,2] - (192,96)[8,4] - (24,96)[1,4] -->
-          <polygon class="svg-plane-1" points="48,48 216,48 192,96 24,96" />
-          <text class="svg-label" x="34" y="88">α</text>
+    /**
+     * Генерирует SVG-паттерн российской школьной тетради в клетку (24px)
+     * с акцентом каждой 5-й клетки (120px) и красной линией полей.
+     */
+    function createNotebookGridDefs(idSuffix) {
+      return `
+        <defs>
+          <pattern id="minorGrid-${idSuffix}" width="${G(1)}" height="${G(1)}" patternUnits="userSpaceOnUse">
+            <path d="M ${G(1)} 0 L 0 0 0 ${G(1)}" fill="none" stroke="var(--grid-line)" stroke-width="1" />
+          </pattern>
+          <pattern id="majorGrid-${idSuffix}" width="${G(5)}" height="${G(5)}" patternUnits="userSpaceOnUse">
+            <rect width="${G(5)}" height="${G(5)}" fill="url(#minorGrid-${idSuffix})" />
+            <path d="M ${G(5)} 0 L 0 0 0 ${G(5)}" fill="none" stroke="var(--grid-line-major)" stroke-width="1.2" />
+          </pattern>
+        </defs>
+        <rect width="${G(20)}" height="${G(13)}" fill="url(#majorGrid-${idSuffix})" />
+        <line x1="${G(19)}" y1="0" x2="${G(19)}" y2="${G(13)}" stroke="var(--margin-line)" stroke-width="1.5" />
+      `;
+    }
 
-          <!-- Плоскость β: (48,168)[2,7] - (216,168)[9,7] - (192,216)[8,9] - (24,216)[1,9] -->
-          <polygon class="svg-plane-2" points="48,168 216,168 192,216 24,216" />
-          <text class="svg-label" x="34" y="208">β</text>
+    /**
+     * Отрисовка узловой точки строго на пересечении клеток (X = k*24, Y = m*24)
+     */
+    function nodeDot(k, m, color = 'var(--ink-main)', r = 3.2) {
+      return `<circle cx="${G(k)}" cy="${G(m)}" r="${r}" fill="${color}" />`;
+    }
 
-          <!-- Прямая a ⊥ α, β по линии X = 72 (3 кл.) -->
-          <line class="svg-main-line" x1="72" y1="24" x2="72" y2="72" />
-          <line class="svg-hidden-line" x1="72" y1="72" x2="72" y2="96" />
-          <line class="svg-main-line" x1="72" y1="96" x2="72" y2="192" />
-          <line class="svg-hidden-line" x1="72" y1="192" x2="72" y2="216" />
-          <line class="svg-main-line" x1="72" y1="216" x2="72" y2="240" />
-          <text class="svg-label" x="56" y="38">a</text>
+    // =========================================================================
+    // 2. ГЕНЕРАТОРЫ ИДЕАЛЬНЫХ СТЕРЕОМЕТРИЧЕСКИХ ЧЕРТЕЖЕЙ (ВСЕ УЗЛЫ КРАТНЫ 24PX)
+    // =========================================================================
+    const BLUEPRINTS = {
+      // -----------------------------------------------------------------------
+      // Задача № 153 (В-1 №1 и В-2 №1) — Обратная теорема о трех перпендикулярах
+      // -----------------------------------------------------------------------
+      "153": () => `
+        <svg class="blueprint-svg" viewBox="0 0 ${G(20)} ${G(13)}" xmlns="http://www.w3.org/2000/svg">
+          ${createNotebookGridDefs('153')}
 
-          <!-- Квадратики прямых углов прямой a (12x12px) -->
-          <polyline class="svg-right-angle" points="72,60 84,60 84,72" />
-          <line class="svg-main-line" x1="72" y1="72" x2="96" y2="72" />
-          <polyline class="svg-right-angle" points="72,180 84,180 84,192" />
-          <line class="svg-main-line" x1="72" y1="192" x2="96" y2="192" />
+          <!-- Плоскость alpha: вершины (2,11), (15,11), (18,6), (5,6) — строго в узлах клеток -->
+          <polygon points="${G(2)},${G(11)} ${G(15)},${G(11)} ${G(18)},${G(6)} ${G(5)},${G(6)}"
+                   fill="var(--ink-plane)" stroke="var(--ink-plane-stroke)" stroke-width="2" stroke-linejoin="round" />
+          <text x="${G(3) + 6}" y="${G(10) + 16}" class="svg-math-label">α</text>
 
-          <!-- Прямая AB ∥ a по линии X = 144 (6 кл.), A(144,72)[6,3], B(144,192)[6,8] -->
-          <line class="svg-main-line" x1="144" y1="24" x2="144" y2="72" />
-          <line class="svg-hidden-line" x1="144" y1="72" x2="144" y2="96" />
-          <line class="svg-main-line" x1="144" y1="96" x2="144" y2="192" />
-          <line class="svg-hidden-line" x1="144" y1="192" x2="144" y2="216" />
-          <line class="svg-main-line" x1="144" y1="216" x2="144" y2="240" />
+          <!-- Прямая a в плоскости alpha через M(13,8): от P1(11,11) до P2(15,5) -->
+          <line x1="${G(11)}" y1="${G(11)}" x2="${G(15)}" y2="${G(5)}"
+                stroke="var(--ink-accent)" stroke-width="2.4" stroke-linecap="round" />
+          <text x="${G(15) + 8}" y="${G(5) + 6}" class="svg-math-label" style="fill:var(--ink-accent);">a</text>
 
-          <!-- Прямые углы при вершинах A(144,72) и B(144,192) -->
-          <polyline class="svg-right-angle" points="144,84 156,84 156,72" />
-          <polyline class="svg-right-angle" points="144,180 156,180 156,192" />
+          <!-- Проекция HM: от H(7,8) до M(13,8) — ровно 6 клеток по горизонтали -->
+          <line x1="${G(7)}" y1="${G(8)}" x2="${G(13)}" y2="${G(8)}"
+                stroke="var(--ink-main)" stroke-width="2.2" stroke-dasharray="6,4" />
 
-          <!-- Гипотетическая общая точка M(312,144)[13,6] (от противного) -->
-          <line class="svg-aux-line" x1="144" y1="72" x2="312" y2="144" />
-          <line class="svg-aux-line" x1="144" y1="192" x2="312" y2="144" />
+          <!-- Перпендикуляр AH: от A(7,2) до H(7,8) — ровно 6 клеток по вертикали -->
+          <line x1="${G(7)}" y1="${G(2)}" x2="${G(7)}" y2="${G(8)}"
+                stroke="var(--ink-main)" stroke-width="2.3" />
 
-          <!-- Узлы клеток -->
-          <circle class="svg-vertex" cx="72" cy="72" r="3.2" />
-          <circle class="svg-vertex" cx="72" cy="192" r="3.2" />
-          <circle class="svg-vertex" cx="144" cy="72" r="3.8" />
-          <circle class="svg-vertex" cx="144" cy="192" r="3.8" />
-          <circle class="svg-vertex" cx="312" cy="144" r="3.8" />
+          <!-- Наклонная AM: от A(7,2) до M(13,8) -->
+          <line x1="${G(7)}" y1="${G(2)}" x2="${G(13)}" y2="${G(8)}"
+                stroke="var(--ink-main)" stroke-width="2.4" />
+
+          <!-- Квадратик прямого угла при вершине H(7,8): 12x12px строго по клетке -->
+          <polyline points="${G(7)},${G(8) - 12} ${G(7) + 12},${G(8) - 12} ${G(7) + 12},${G(8)}"
+                    fill="none" stroke="var(--ink-green)" stroke-width="1.8" />
+
+          <!-- Маркер прямого угла a ⊥ AM и a ⊥ HM в точке M(13,8) -->
+          <polyline points="${G(13) - 12},${G(8)} ${G(13) - 6},${G(8) + 9} ${G(13) + 6},${G(8) + 9}"
+                    fill="none" stroke="var(--ink-red)" stroke-width="1.8" />
+
+          <!-- Узловые точки строго на перекрестиях сетки -->
+          ${nodeDot(7, 2)}
+          ${nodeDot(7, 8)}
+          ${nodeDot(13, 8, 'var(--ink-red)', 3.6)}
+          ${nodeDot(11, 11, 'var(--ink-accent)', 2.6)}
+          ${nodeDot(15, 5, 'var(--ink-accent)', 2.6)}
 
           <!-- Буквенные обозначения -->
-          <text class="svg-label" x="124" y="68">A</text>
-          <text class="svg-label" x="124" y="188">B</text>
-          <text class="svg-label" x="320" y="148">M</text>
-          <text class="svg-metric" x="234" y="96">Допущение: M ∈ α ∩ β</text>
-
-          <!-- Подписи координат клеток (k, m) -->
-          <text class="svg-coord-tag" x="150" y="66">A(6;3)</text>
-          <text class="svg-coord-tag" x="150" y="206">B(6;8)</text>
-          <text class="svg-coord-tag" x="295" y="162">M(13;6)</text>
+          <text x="${G(7) - 18}" y="${G(2) - 6}" class="svg-math-label">A</text>
+          <text x="${G(7) - 20}" y="${G(8) + 16}" class="svg-math-label">H</text>
+          <text x="${G(13) + 10}" y="${G(8) + 6}" class="svg-math-label">M</text>
         </svg>
       `,
 
-      /* Чертеж к № 133: Единственность плоскости α ⊥ a через точку M */
-      task133: () => `
-        <svg class="geometry-svg" viewBox="0 0 384 264" xmlns="http://www.w3.org/2000/svg">
-          <!-- Основная плоскость α: (72,120)[3,5] - (336,120)[14,5] - (288,192)[12,8] - (24,192)[1,8] -->
-          <polygon class="svg-plane-1" points="72,120 336,120 288,192 24,192" />
-          <text class="svg-label" x="42" y="184">α</text>
+      // -----------------------------------------------------------------------
+      // Задача № 162 (В-1 №2 и В-2 №2) — Наименьший угол наклонной с прямыми плоскости
+      // -----------------------------------------------------------------------
+      "162": () => `
+        <svg class="blueprint-svg" viewBox="0 0 ${G(20)} ${G(13)}" xmlns="http://www.w3.org/2000/svg">
+          ${createNotebookGridDefs('162')}
 
-          <!-- Гипотетическая плоскость α₁ (штриховым контуром): (72,72)[3,3] - (336,120)[14,5] - (288,192)[12,8] - (24,144)[1,6] -->
-          <polygon points="72,72 336,120 288,192 24,144" fill="rgba(244,63,94,0.07)" stroke="var(--stroke-accent)" stroke-width="1.6" stroke-dasharray="6,4" />
-          <text class="svg-label" x="48" y="92" style="fill:var(--stroke-accent);">α₁</text>
+          <!-- Плоскость alpha: вершины (2,11), (16,11), (19,6), (5,6) -->
+          <polygon points="${G(2)},${G(11)} ${G(16)},${G(11)} ${G(19)},${G(6)} ${G(5)},${G(6)}"
+                   fill="var(--ink-plane)" stroke="var(--ink-plane-stroke)" stroke-width="2" stroke-linejoin="round" />
+          <text x="${G(3) + 4}" y="${G(10) + 16}" class="svg-math-label">α</text>
 
-          <!-- Прямая a по вертикали X = 120 (5 кл.), O(120,144)[5,6], O₁(120,96)[5,4] -->
-          <line class="svg-main-line" x1="120" y1="24" x2="120" y2="144" />
-          <line class="svg-hidden-line" x1="120" y1="144" x2="120" y2="192" />
-          <line class="svg-main-line" x1="120" y1="192" x2="120" y2="240" />
-          <text class="svg-label" x="102" y="42">a</text>
+          <!-- Произвольная прямая p в плоскости alpha через A(6,8) и N(10,10): от (4,7) до (12,11) -->
+          <line x1="${G(4)}" y1="${G(7)}" x2="${G(12)}" y2="${G(11)}"
+                stroke="var(--ink-accent)" stroke-width="2.2" stroke-linecap="round" />
+          <text x="${G(4) - 14}" y="${G(7) - 4}" class="svg-math-label" style="fill:var(--ink-accent);">p</text>
 
-          <!-- Отрезок OM в плоскости α: O(120,144)[5,6] — M(240,144)[10,6] -->
-          <line class="svg-main-line" x1="120" y1="144" x2="240" y2="144" />
-          <!-- Прямой угол при точке O(120,144) -->
-          <polyline class="svg-right-angle" points="120,132 132,132 132,144" />
+          <!-- Проекция AH: от A(6,8) до H(14,8) — ровно 8 клеток по горизонтали -->
+          <line x1="${G(6)}" y1="${G(8)}" x2="${G(14)}" y2="${G(8)}"
+                stroke="var(--ink-main)" stroke-width="2.2" stroke-dasharray="6,4" />
 
-          <!-- Штриховой отрезок O₁M в гипотетической плоскости α₁: O₁(120,96)[5,4] — M(240,144)[10,6] -->
-          <line class="svg-aux-line" x1="120" y1="96" x2="240" y2="144" style="stroke:var(--stroke-accent);" />
+          <!-- Отрезок HN в плоскости alpha: от H(14,8) до N(10,10) -->
+          <line x1="${G(14)}" y1="${G(8)}" x2="${G(10)}" y2="${G(10)}"
+                stroke="var(--ink-main)" stroke-width="1.8" stroke-dasharray="4,4" />
 
-          <!-- Точки в узлах клеток -->
-          <circle class="svg-vertex" cx="120" cy="144" r="3.8" />
-          <circle class="svg-vertex" cx="120" cy="96" r="3.5" style="fill:var(--stroke-accent);" />
-          <circle class="svg-vertex" cx="240" cy="144" r="4" />
+          <!-- Перпендикуляр MH ⊥ alpha: от M(14,2) до H(14,8) — 6 клеток вертикально -->
+          <line x1="${G(14)}" y1="${G(2)}" x2="${G(14)}" y2="${G(8)}"
+                stroke="var(--ink-main)" stroke-width="2.3" />
 
-          <!-- Обозначения -->
-          <text class="svg-label" x="98" y="152">O</text>
-          <text class="svg-label" x="95" y="102" style="fill:var(--stroke-accent);">O₁</text>
-          <text class="svg-label" x="248" y="148">M</text>
+          <!-- Наклонная MA: от M(14,2) до A(6,8) -->
+          <line x1="${G(14)}" y1="${G(2)}" x2="${G(6)}" y2="${G(8)}"
+                stroke="var(--ink-main)" stroke-width="2.5" />
 
-          <!-- Координаты клеток -->
-          <text class="svg-coord-tag" x="126" y="160">O(5;6)</text>
-          <text class="svg-coord-tag" x="128" y="92">O₁(5;4)</text>
-          <text class="svg-coord-tag" x="236" y="164">M(10;6)</text>
+          <!-- Перпендикуляр MN ⊥ p: от M(14,2) до N(10,10) (вектор (-4,8) ⊥ вектору (2,1)!) -->
+          <line x1="${G(14)}" y1="${G(2)}" x2="${G(10)}" y2="${G(10)}"
+                stroke="var(--ink-red)" stroke-width="2.1" />
+
+          <!-- Прямой угол при H(14,8): 12x12px -->
+          <polyline points="${G(14) - 12},${G(8)} ${G(14) - 12},${G(8) - 12} ${G(14)},${G(8) - 12}"
+                    fill="none" stroke="var(--ink-green)" stroke-width="1.8" />
+
+          <!-- Прямой угол MN ⊥ p в точке N(10,10) -->
+          <polyline points="${G(10) - 10},${G(10) - 5} ${G(10) - 5},${G(10) - 15} ${G(10) + 5},${G(10) - 10}"
+                    fill="none" stroke="var(--ink-red)" stroke-width="1.8" />
+
+          <!-- Дуги углов phi_0 = ∠MAH и phi = ∠MAN при вершине A(6,8) -->
+          <path d="M ${G(6) + 32} ${G(8)} A 32 32 0 0 0 ${G(6) + 26} ${G(8) - 19}"
+                fill="none" stroke="var(--ink-green)" stroke-width="2" />
+          <path d="M ${G(6) + 40} ${G(8) + 20} A 45 45 0 0 0 ${G(6) + 36} ${G(8) - 27}"
+                fill="none" stroke="var(--ink-red)" stroke-width="1.8" />
+
+          <text x="${G(6) + 36}" y="${G(8) - 5}" class="svg-math-label" style="font-size:14px; fill:var(--ink-green);">φ<tspan dy="3" class="svg-math-sub">0</tspan></text>
+          <text x="${G(6) + 52}" y="${G(8) + 14}" class="svg-math-label" style="font-size:14px; fill:var(--ink-red);">φ</text>
+
+          <!-- Узловые точки -->
+          ${nodeDot(14, 2)}
+          ${nodeDot(14, 8)}
+          ${nodeDot(6, 8)}
+          ${nodeDot(10, 10, 'var(--ink-red)', 3.5)}
+
+          <!-- Буквенные подписи -->
+          <text x="${G(14) + 8}" y="${G(2) - 4}" class="svg-math-label">M</text>
+          <text x="${G(14) + 9}" y="${G(8) + 6}" class="svg-math-label">H</text>
+          <text x="${G(6) - 18}" y="${G(8) + 4}" class="svg-math-label">A</text>
+          <text x="${G(10) - 6}" y="${G(10) + 19}" class="svg-math-label">N</text>
         </svg>
       `,
 
-      /* Чертеж к № 119 (а): OA ⊥ (OBC), AO = OD => AB = DB */
-      task119a: () => `
-        <svg class="geometry-svg" viewBox="0 0 384 264" xmlns="http://www.w3.org/2000/svg">
-          <!-- Плоскость (OBC): (72,120)[3,5] - (336,120)[14,5] - (288,168)[12,7] - (24,168)[1,7] -->
-          <polygon class="svg-plane-1" points="72,120 336,120 288,168 24,168" />
+      // -----------------------------------------------------------------------
+      // Задача № 144 (В-1 №3 и В-2 №3) — Равноудаленность точек прямой a || alpha
+      // -----------------------------------------------------------------------
+      "144": () => `
+        <svg class="blueprint-svg" viewBox="0 0 ${G(20)} ${G(13)}" xmlns="http://www.w3.org/2000/svg">
+          ${createNotebookGridDefs('144')}
 
-          <!-- Перпендикуляр AD через центр O(144,144)[6,6]: A(144,48)[6,2], D(144,240)[6,10] -->
-          <line class="svg-main-line" x1="144" y1="48" x2="144" y2="144" />
-          <line class="svg-hidden-line" x1="144" y1="144" x2="144" y2="168" />
-          <line class="svg-main-line" x1="144" y1="168" x2="144" y2="240" />
+          <!-- Плоскость alpha: вершины (2,11), (15,11), (18,7), (5,7) -->
+          <polygon points="${G(2)},${G(11)} ${G(15)},${G(11)} ${G(18)},${G(7)} ${G(5)},${G(7)}"
+                   fill="var(--ink-plane)" stroke="var(--ink-plane-stroke)" stroke-width="2" stroke-linejoin="round" />
+          <text x="${G(3) + 4}" y="${G(10) + 16}" class="svg-math-label">α</text>
 
-          <!-- Отрезки OB и OC в плоскости (OBC): B(264,144)[11,6], C(192,168)[8,7] -->
-          <line class="svg-main-line" x1="144" y1="144" x2="264" y2="144" />
-          <line class="svg-aux-line" x1="144" y1="144" x2="192" y2="168" />
+          <!-- Параллельная прямая a: от (3,3) до (17,3) вдоль горизонтальной линии сетки -->
+          <line x1="${G(3)}" y1="${G(3)}" x2="${G(17)}" y2="${G(3)}"
+                stroke="var(--ink-accent)" stroke-width="2.5" stroke-linecap="round" />
+          <text x="${G(3) + 4}" y="${G(3) - 8}" class="svg-math-label" style="fill:var(--ink-accent);">a</text>
 
-          <!-- Наклонные AB и DB (гипотенузы равных прямоугольных треугольников) -->
-          <line class="svg-accent-line" x1="144" y1="48" x2="264" y2="144" />
-          <line class="svg-accent-line" x1="144" y1="240" x2="264" y2="144" />
+          <!-- Отрезок проекции A1B1 в плоскости alpha: от A1(6,9) до B1(13,9) -->
+          <line x1="${G(6)}" y1="${G(9)}" x2="${G(13)}" y2="${G(9)}"
+                stroke="var(--ink-main)" stroke-width="2" stroke-dasharray="6,4" />
 
-          <!-- Квадратики прямых углов ∠AOB = 90° и ∠DOB = 90° (12x12px) -->
-          <polyline class="svg-right-angle" points="144,132 156,132 156,144" />
-          <polyline class="svg-right-angle" points="144,156 156,156 156,144" />
+          <!-- Перпендикуляры AA1 и BB1 (по 6 клеток = 144px каждый) -->
+          <line x1="${G(6)}" y1="${G(3)}" x2="${G(6)}" y2="${G(9)}"
+                stroke="var(--ink-main)" stroke-width="2.3" />
+          <line x1="${G(13)}" y1="${G(3)}" x2="${G(13)}" y2="${G(9)}"
+                stroke="var(--ink-main)" stroke-width="2.3" />
 
-          <!-- Засечки равенства отрезков AO = OD -->
-          <line class="svg-main-line" x1="138" y1="96" x2="150" y2="96" />
-          <line class="svg-main-line" x1="138" y1="192" x2="150" y2="192" />
+          <!-- Засечки равенства отрезков AA1 = BB1 на высоте y = G(6) -->
+          <line x1="${G(6) - 6}" y1="${G(6)}" x2="${G(6) + 6}" y2="${G(6)}" stroke="var(--ink-red)" stroke-width="2" />
+          <line x1="${G(13) - 6}" y1="${G(6)}" x2="${G(13) + 6}" y2="${G(6)}" stroke="var(--ink-red)" stroke-width="2" />
 
-          <!-- Вершины строго в узлах сетки -->
-          <circle class="svg-vertex" cx="144" cy="48" r="4" />
-          <circle class="svg-vertex" cx="144" cy="144" r="4" />
-          <circle class="svg-vertex" cx="144" cy="240" r="4" />
-          <circle class="svg-vertex" cx="264" cy="144" r="4" />
-          <circle class="svg-vertex" cx="192" cy="168" r="3.4" />
+          <!-- Квадратики прямых углов 12x12px при A1(6,9) и B1(13,9) -->
+          <polyline points="${G(6)},${G(9) - 12} ${G(6) + 12},${G(9) - 12} ${G(6) + 12},${G(9)}"
+                    fill="none" stroke="var(--ink-green)" stroke-width="1.8" />
+          <polyline points="${G(13) - 12},${G(9)} ${G(13) - 12},${G(9) - 12} ${G(13)},${G(9) - 12}"
+                    fill="none" stroke="var(--ink-green)" stroke-width="1.8" />
 
-          <!-- Подписи вершин -->
-          <text class="svg-label" x="124" y="52">A</text>
-          <text class="svg-label" x="123" y="142">O</text>
-          <text class="svg-label" x="123" y="244">D</text>
-          <text class="svg-label" x="272" y="148">B</text>
-          <text class="svg-label" x="196" y="185">C</text>
+          <!-- Узловые точки -->
+          ${nodeDot(6, 3)}
+          ${nodeDot(13, 3)}
+          ${nodeDot(6, 9)}
+          ${nodeDot(13, 9)}
 
-          <!-- Координаты клеток -->
-          <text class="svg-coord-tag" x="152" y="46">A(6;2)</text>
-          <text class="svg-coord-tag" x="102" y="158">O(6;6)</text>
-          <text class="svg-coord-tag" x="152" y="244">D(6;10)</text>
-          <text class="svg-coord-tag" x="260" y="132">B(11;6)</text>
+          <!-- Буквенные подписи -->
+          <text x="${G(6) - 6}" y="${G(3) - 9}" class="svg-math-label">A</text>
+          <text x="${G(13) - 6}" y="${G(3) - 9}" class="svg-math-label">B</text>
+          <text x="${G(6) - 18}" y="${G(9) + 17}" class="svg-math-label">A<tspan dy="3" class="svg-math-sub">1</tspan></text>
+          <text x="${G(13) + 6}" y="${G(9) + 17}" class="svg-math-label">B<tspan dy="3" class="svg-math-sub">1</tspan></text>
         </svg>
       `,
 
-      /* Чертеж к № 119 (б): OA ⊥ (OBC), OB = OC => AB = AC */
-      task119b: () => `
-        <svg class="geometry-svg" viewBox="0 0 384 264" xmlns="http://www.w3.org/2000/svg">
-          <!-- Плоскость (OBC): (72,144)[3,6] - (360,144)[15,6] - (312,240)[13,10] - (24,240)[1,10] -->
-          <polygon class="svg-plane-1" points="72,144 360,144 312,240 24,240" />
+      // -----------------------------------------------------------------------
+      // Задача № 141 (В-1 №4) — Расстояние от середины отрезка до плоскости (6 см -> 3 см)
+      // -----------------------------------------------------------------------
+      "141": () => `
+        <svg class="blueprint-svg" viewBox="0 0 ${G(20)} ${G(13)}" xmlns="http://www.w3.org/2000/svg">
+          ${createNotebookGridDefs('141')}
 
-          <!-- Перпендикуляр OA к плоскости (OBC): O(144,168)[6,7], A(144,48)[6,2], D(144,240)[6,10] -->
-          <line class="svg-main-line" x1="144" y1="48" x2="144" y2="168" />
-          <line class="svg-hidden-line" x1="144" y1="168" x2="144" y2="240" />
+          <!-- Плоскость alpha: вершины (2,11), (16,11), (18,7), (4,7) -->
+          <polygon points="${G(2)},${G(11)} ${G(16)},${G(11)} ${G(18)},${G(7)} ${G(4)},${G(7)}"
+                   fill="var(--ink-plane)" stroke="var(--ink-plane-stroke)" stroke-width="2" stroke-linejoin="round" />
+          <text x="${G(3)}" y="${G(10) + 16}" class="svg-math-label">α</text>
 
-          <!-- Равные катеты OB и OC в плоскости (OBC): B(264,168)[11,7], C(216,216)[9,9] -->
-          <line class="svg-main-line" x1="144" y1="168" x2="264" y2="168" />
-          <line class="svg-main-line" x1="144" y1="168" x2="216" y2="216" />
+          <!-- Прямая проекции AB1 в плоскости alpha: от A(5,9) через M1(10,9) до B1(15,9) -->
+          <line x1="${G(5)}" y1="${G(9)}" x2="${G(15)}" y2="${G(9)}"
+                stroke="var(--ink-main)" stroke-width="2" stroke-dasharray="6,4" />
 
-          <!-- Равные гипотенузы AB и AC -->
-          <line class="svg-accent-line" x1="144" y1="48" x2="264" y2="168" />
-          <line class="svg-accent-line" x1="144" y1="48" x2="216" y2="216" />
+          <!-- Перпендикуляр BB1 = 6 клеток (6 см): от B(15,3) до B1(15,9) -->
+          <line x1="${G(15)}" y1="${G(3)}" x2="${G(15)}" y2="${G(9)}"
+                stroke="var(--ink-main)" stroke-width="2.3" />
 
-          <!-- Прямые углы ∠AOB = 90° и ∠AOC = 90° -->
-          <polyline class="svg-right-angle" points="144,156 156,156 156,168" />
-          <polyline class="svg-right-angle" points="144,156 154,163 154,175" />
+          <!-- Средняя линия MM1 = 3 клетки (3 см): от M(10,6) до M1(10,9) -->
+          <line x1="${G(10)}" y1="${G(6)}" x2="${G(10)}" y2="${G(9)}"
+                stroke="var(--ink-red)" stroke-width="2.5" />
 
-          <!-- Засечки равенства OB = OC -->
-          <line class="svg-main-line" x1="204" y1="162" x2="204" y2="174" />
-          <line class="svg-main-line" x1="176" y1="198" x2="184" y2="186" />
+          <!-- Отрезок AB: от A(5,9) через M(10,6) до B(15,3) -->
+          <line x1="${G(5)}" y1="${G(9)}" x2="${G(15)}" y2="${G(3)}"
+                stroke="var(--ink-accent)" stroke-width="2.5" />
 
-          <!-- Узлы сетки -->
-          <circle class="svg-vertex" cx="144" cy="48" r="4" />
-          <circle class="svg-vertex" cx="144" cy="168" r="4" />
-          <circle class="svg-vertex" cx="264" cy="168" r="4" />
-          <circle class="svg-vertex" cx="216" cy="216" r="4" />
-          <circle class="svg-vertex" cx="144" cy="240" r="3" />
+          <!-- Засечки равенства AM = MB в точках (7.5, 7.5) и (12.5, 4.5) -->
+          <line x1="${G(7) + 8}" y1="${G(7) + 4}" x2="${G(7) + 16}" y2="${G(7) + 18}" stroke="var(--ink-red)" stroke-width="2" />
+          <line x1="${G(12) + 8}" y1="${G(4) + 4}" x2="${G(12) + 16}" y2="${G(4) + 18}" stroke="var(--ink-red)" stroke-width="2" />
 
-          <!-- Подписи вершин -->
-          <text class="svg-label" x="124" y="52">A</text>
-          <text class="svg-label" x="122" y="172">O</text>
-          <text class="svg-label" x="124" y="254">D</text>
-          <text class="svg-label" x="272" y="172">B</text>
-          <text class="svg-label" x="224" y="224">C</text>
+          <!-- Квадратики прямых углов при M1(10,9) и B1(15,9) -->
+          <polyline points="${G(10) - 12},${G(9)} ${G(10) - 12},${G(9) - 12} ${G(10)},${G(9) - 12}"
+                    fill="none" stroke="var(--ink-green)" stroke-width="1.8" />
+          <polyline points="${G(15) - 12},${G(9)} ${G(15) - 12},${G(9) - 12} ${G(15)},${G(9) - 12}"
+                    fill="none" stroke="var(--ink-green)" stroke-width="1.8" />
 
-          <!-- Координаты клеток -->
-          <text class="svg-coord-tag" x="152" y="48">A(6;2)</text>
-          <text class="svg-coord-tag" x="98" y="184">O(6;7)</text>
-          <text class="svg-coord-tag" x="262" y="156">B(11;7)</text>
-          <text class="svg-coord-tag" x="224" y="208">C(9;9)</text>
+          <!-- Узловые точки строго в узлах клеток -->
+          ${nodeDot(5, 9)}
+          ${nodeDot(10, 6, 'var(--ink-red)', 3.8)}
+          ${nodeDot(15, 3)}
+          ${nodeDot(10, 9, 'var(--ink-red)', 3.4)}
+          ${nodeDot(15, 9)}
+
+          <!-- Буквенные и числовые подписи -->
+          <text x="${G(5) - 18}" y="${G(9) + 6}" class="svg-math-label">A</text>
+          <text x="${G(10) - 14}" y="${G(6) - 8}" class="svg-math-label">M</text>
+          <text x="${G(15) - 4}" y="${G(3) - 8}" class="svg-math-label">B</text>
+          <text x="${G(10) - 8}" y="${G(9) + 18}" class="svg-math-label">M<tspan dy="3" class="svg-math-sub">1</tspan></text>
+          <text x="${G(15) - 6}" y="${G(9) + 18}" class="svg-math-label">B<tspan dy="3" class="svg-math-sub">1</tspan></text>
+
+          <text x="${G(15) + 8}" y="${G(6) + 4}" class="svg-caption-label">6 см (6 кл.)</text>
+          <text x="${G(10) + 6}" y="${G(7) + 14}" class="svg-caption-label" style="fill:var(--ink-red);">3 см (3 кл.)</text>
         </svg>
       `,
 
-      /* Чертеж к № 125: PP₁ ⊥ α, QQ₁ ⊥ α, прямоугольная трапеция P₁PQQ₁ */
-      task125: () => `
-        <svg class="geometry-svg" viewBox="0 0 384 264" xmlns="http://www.w3.org/2000/svg">
-          <!-- Плоскость α внизу: (48,192)[2,8] - (360,192)[15,8] - (312,240)[13,10] - (24,240)[1,10] -->
-          <polygon class="svg-plane-1" points="48,192 360,192 312,240 24,240" />
-          <text class="svg-label" x="40" y="232">α</text>
+      // -----------------------------------------------------------------------
+      // Задача № 142 (В-2 №4) — Концы отрезка на расстояниях 1 см и 4 см (оба случая!)
+      // Масштаб: 2 клетки = 1 см, чтобы даже 2,5 см (5 кл.) и 1,5 см (3 кл.) попали в узлы!
+      // -----------------------------------------------------------------------
+      "142": () => `
+        <svg class="blueprint-svg" viewBox="0 0 ${G(20)} ${G(13)}" xmlns="http://www.w3.org/2000/svg">
+          ${createNotebookGridDefs('142')}
 
-          <!-- Заливка прямоугольного треугольника PHQ: P(96,120)[4,5], H(264,120)[11,5], Q(264,48)[11,2] -->
-          <polygon points="96,120 264,120 264,48" fill="rgba(220,38,38,0.09)" />
+          <!-- Разделитель случаев по вертикали x = G(10) -->
+          <line x1="${G(10)}" y1="${G(1)}" x2="${G(10)}" y2="${G(12)}"
+                stroke="var(--grid-line-major)" stroke-width="1.5" stroke-dasharray="4,4" />
 
-          <!-- Проекция P₁Q₁ на плоскости α: P₁(96,216)[4,9], Q₁(264,216)[11,9] -->
-          <line class="svg-accent-line" x1="96" y1="216" x2="264" y2="216" />
+          <!-- ==================== СЛУЧАЙ I (слева): по одну сторону от alpha ==================== -->
+          <text x="${G(1)}" y="${G(1) + 14}" class="svg-caption-label">I сл.: по одну сторону (2,5 см)</text>
 
-          <!-- Перпендикуляры PP₁ и QQ₁ -->
-          <line class="svg-main-line" x1="96" y1="120" x2="96" y2="216" />
-          <line class="svg-main-line" x1="264" y1="48" x2="264" y2="216" />
+          <!-- Линия плоскости alpha: от (1,10) до (9,10) -->
+          <line x1="${G(1)}" y1="${G(10)}" x2="${G(9)}" y2="${G(10)}"
+                stroke="var(--ink-plane-stroke)" stroke-width="2.4" />
+          <text x="${G(1) + 4}" y="${G(11) - 4}" class="svg-math-label">α</text>
 
-          <!-- Наклонная PQ: P(96,120)[4,5] — Q(264,48)[11,2] -->
-          <line class="svg-main-line" x1="96" y1="120" x2="264" y2="48" />
+          <!-- Перпендикуляры: AA1 = 2 кл. (1 см), BB1 = 8 кл. (4 см), MM1 = 5 кл. (2,5 см) -->
+          <line x1="${G(2)}" y1="${G(8)}" x2="${G(2)}" y2="${G(10)}" stroke="var(--ink-main)" stroke-width="2.2" />
+          <line x1="${G(8)}" y1="${G(2)}" x2="${G(8)}" y2="${G(10)}" stroke="var(--ink-main)" stroke-width="2.2" />
+          <line x1="${G(5)}" y1="${G(5)}" x2="${G(5)}" y2="${G(10)}" stroke="var(--ink-red)" stroke-width="2.5" />
 
-          <!-- Перпендикуляр PH ⊥ QQ₁: P(96,120)[4,5] — H(264,120)[11,5] -->
-          <line class="svg-aux-line" x1="96" y1="120" x2="264" y2="120" />
+          <!-- Отрезок AB: от A(2,8) через M(5,5) до B(8,2) -->
+          <line x1="${G(2)}" y1="${G(8)}" x2="${G(8)}" y2="${G(2)}" stroke="var(--ink-accent)" stroke-width="2.4" />
 
-          <!-- Квадратики прямых углов при P₁, Q₁ и H (строго по линиям сетки 12x12px) -->
-          <polyline class="svg-right-angle" points="96,204 108,204 108,216" />
-          <polyline class="svg-right-angle" points="252,216 252,204 264,204" />
-          <polyline class="svg-right-angle" points="252,120 252,108 264,108" />
+          <!-- Прямые углы при A1(2,10), M1(5,10), B1(8,10) -->
+          <polyline points="${G(2)},${G(10)-10} ${G(2)+10},${G(10)-10} ${G(2)+10},${G(10)}" fill="none" stroke="var(--ink-green)" stroke-width="1.6" />
+          <polyline points="${G(5)},${G(10)-10} ${G(5)+10},${G(10)-10} ${G(5)+10},${G(10)}" fill="none" stroke="var(--ink-green)" stroke-width="1.6" />
+          <polyline points="${G(8)-10},${G(10)} ${G(8)-10},${G(10)-10} ${G(8)},${G(10)-10}" fill="none" stroke="var(--ink-green)" stroke-width="1.6" />
 
-          <!-- Вершины в узлах сетки -->
-          <circle class="svg-vertex" cx="96" cy="120" r="4" />
-          <circle class="svg-vertex" cx="96" cy="216" r="4" />
-          <circle class="svg-vertex" cx="264" cy="48" r="4" />
-          <circle class="svg-vertex" cx="264" cy="120" r="4" />
-          <circle class="svg-vertex" cx="264" cy="216" r="4" />
+          <!-- Узлы Случая I -->
+          ${nodeDot(2, 8)} ${nodeDot(2, 10)}
+          ${nodeDot(5, 5, 'var(--ink-red)', 3.6)} ${nodeDot(5, 10, 'var(--ink-red)', 3.2)}
+          ${nodeDot(8, 2)} ${nodeDot(8, 10)}
 
-          <!-- Подписи вершин и длин -->
-          <text class="svg-label" x="76" y="124">P</text>
-          <text class="svg-label" x="72" y="222">P₁</text>
-          <text class="svg-label" x="272" y="52">Q</text>
-          <text class="svg-label" x="272" y="125">H</text>
-          <text class="svg-label" x="272" y="222">Q₁</text>
+          <text x="${G(2) - 14}" y="${G(8) - 4}" class="svg-math-label">A</text>
+          <text x="${G(5) - 16}" y="${G(5) - 4}" class="svg-math-label">M</text>
+          <text x="${G(8) - 14}" y="${G(2) - 4}" class="svg-math-label">B</text>
+          <text x="${G(2) - 8}" y="${G(10) + 16}" class="svg-math-label" style="font-size:13px;">A<tspan dy="2" class="svg-math-sub">1</tspan></text>
+          <text x="${G(5) - 8}" y="${G(10) + 16}" class="svg-math-label" style="font-size:13px;">M<tspan dy="2" class="svg-math-sub">1</tspan></text>
+          <text x="${G(8) - 8}" y="${G(10) + 16}" class="svg-math-label" style="font-size:13px;">B<tspan dy="2" class="svg-math-sub">1</tspan></text>
 
-          <text class="svg-metric" x="156" y="76">PQ = 15 см</text>
-          <text class="svg-metric" x="34" y="172">21,5 см</text>
-          <text class="svg-metric" x="274" y="90">QH = 12</text>
-          <text class="svg-metric" x="274" y="172">33,5 см</text>
-          <text class="svg-metric" x="156" y="210">P₁Q₁ = 9 см</text>
+          <!-- ==================== СЛУЧАЙ II (справа): по разные стороны от alpha ==================== -->
+          <text x="${G(11)}" y="${G(1) + 14}" class="svg-caption-label">II сл.: по разные (1,5 см)</text>
 
-          <!-- Координаты клеток -->
-          <text class="svg-coord-tag" x="98" y="112">P(4;5)</text>
-          <text class="svg-coord-tag" x="98" y="232">P₁(4;9)</text>
-          <text class="svg-coord-tag" x="220" y="42">Q(11;2)</text>
-          <text class="svg-coord-tag" x="218" y="134">H(11;5)</text>
-          <text class="svg-coord-tag" x="255" y="234">Q₁(11;9)</text>
+          <!-- Линия плоскости alpha: от (11,9) до (19,9) -->
+          <line x1="${G(11)}" y1="${G(9)}" x2="${G(19)}" y2="${G(9)}"
+                stroke="var(--ink-plane-stroke)" stroke-width="2.4" />
+          <text x="${G(11) + 4}" y="${G(9) - 6}" class="svg-math-label">α</text>
+
+          <!-- A(12,11) — 2 кл. ниже A1(12,9); B(18,1) — 8 кл. выше B1(18,9); середина M(15,6) — 3 кл. выше M1(15,9) -->
+          <line x1="${G(12)}" y1="${G(9)}" x2="${G(12)}" y2="${G(11)}" stroke="var(--ink-main)" stroke-width="2.2" />
+          <line x1="${G(18)}" y1="${G(1)}" x2="${G(18)}" y2="${G(9)}" stroke="var(--ink-main)" stroke-width="2.2" />
+          <line x1="${G(15)}" y1="${G(6)}" x2="${G(15)}" y2="${G(9)}" stroke="var(--ink-red)" stroke-width="2.5" />
+
+          <!-- Отрезок AB: от A(12,11) через M(15,6) до B(18,1) -->
+          <line x1="${G(12)}" y1="${G(11)}" x2="${G(18)}" y2="${G(1)}" stroke="var(--ink-accent)" stroke-width="2.4" />
+
+          <!-- Узлы Случая II -->
+          ${nodeDot(12, 11)} ${nodeDot(12, 9)}
+          ${nodeDot(15, 6, 'var(--ink-red)', 3.6)} ${nodeDot(15, 9, 'var(--ink-red)', 3.2)}
+          ${nodeDot(18, 1)} ${nodeDot(18, 9)}
+
+          <text x="${G(12) - 16}" y="${G(11) + 6}" class="svg-math-label">A</text>
+          <text x="${G(15) - 18}" y="${G(6) + 2}" class="svg-math-label">M</text>
+          <text x="${G(18) - 16}" y="${G(1) + 12}" class="svg-math-label">B</text>
+          <text x="${G(12) + 4}" y="${G(9) - 4}" class="svg-math-label" style="font-size:13px;">A<tspan dy="2" class="svg-math-sub">1</tspan></text>
+          <text x="${G(15) - 8}" y="${G(9) + 16}" class="svg-math-label" style="font-size:13px;">M<tspan dy="2" class="svg-math-sub">1</tspan></text>
+          <text x="${G(18) - 6}" y="${G(9) + 16}" class="svg-math-label" style="font-size:13px;">B<tspan dy="2" class="svg-math-sub">1</tspan></text>
         </svg>
       `,
 
-      /* Чертеж к № 129 (а) и (б): AM ⊥ (ABC), квадрат ABCD, O = AC ∩ BD */
-      task129: () => `
-        <svg class="geometry-svg" viewBox="0 0 384 288" xmlns="http://www.w3.org/2000/svg">
-          <!-- Квадрат ABCD в проекции: A(96,168)[4,7], B(240,168)[10,7], C(288,264)[12,11], D(144,264)[6,11] -->
-          <polygon class="svg-plane-1" points="96,168 240,168 288,264 144,264" />
+      // -----------------------------------------------------------------------
+      // Задача № 139(б) (В-1 №5) — Из равенства проекций следует равенство наклонных
+      // -----------------------------------------------------------------------
+      "139b": () => `
+        <svg class="blueprint-svg" viewBox="0 0 ${G(20)} ${G(13)}" xmlns="http://www.w3.org/2000/svg">
+          ${createNotebookGridDefs('139b')}
 
-          <!-- Плоскость (AMO): A(96,168)[4,7], M(96,48)[4,2], O(192,216)[8,9] -->
-          <polygon points="96,168 96,48 192,216" fill="rgba(99,102,241,0.18)" />
+          <!-- Плоскость alpha: вершины (2,11), (16,11), (18,6), (4,6) -->
+          <polygon points="${G(2)},${G(11)} ${G(16)},${G(11)} ${G(18)},${G(6)} ${G(4)},${G(6)}"
+                   fill="var(--ink-plane)" stroke="var(--ink-plane-stroke)" stroke-width="2" stroke-linejoin="round" />
+          <text x="${G(3)}" y="${G(10) + 16}" class="svg-math-label">α</text>
 
-          <!-- Диагонали квадрата AC и BD, пересекающиеся точно в узле O(192,216)[8,9] -->
-          <line class="svg-main-line" x1="96" y1="168" x2="288" y2="264" />
-          <line class="svg-accent-line" x1="240" y1="168" x2="144" y2="264" />
+          <!-- Проекции HA и HB: от H(10,8) к A(5,9) и B(15,9) -->
+          <line x1="${G(10)}" y1="${G(8)}" x2="${G(5)}" y2="${G(9)}"
+                stroke="var(--ink-accent)" stroke-width="2.3" />
+          <line x1="${G(10)}" y1="${G(8)}" x2="${G(15)}" y2="${G(9)}"
+                stroke="var(--ink-accent)" stroke-width="2.3" />
 
-          <!-- Перпендикуляр AM ⊥ (ABC): M(96,48)[4,2] — A(96,168)[4,7] -->
-          <line class="svg-main-line" x1="96" y1="48" x2="96" y2="168" />
+          <!-- Засечки равенства проекций HA = HB (по условию) -->
+          <line x1="${G(7) + 10}" y1="${G(8) + 4}" x2="${G(7) + 14}" y2="${G(8) + 20}" stroke="var(--ink-red)" stroke-width="2.2" />
+          <line x1="${G(12) + 14}" y1="${G(8) + 4}" x2="${G(12) + 10}" y2="${G(8) + 20}" stroke="var(--ink-red)" stroke-width="2.2" />
 
-          <!-- Наклонная MO: M(96,48)[4,2] — O(192,216)[8,9] -->
-          <line class="svg-accent-line" x1="96" y1="48" x2="192" y2="216" />
+          <!-- Перпендикуляр MH: от M(10,2) до H(10,8) — 6 клеток вертикально -->
+          <line x1="${G(10)}" y1="${G(2)}" x2="${G(10)}" y2="${G(8)}"
+                stroke="var(--ink-main)" stroke-width="2.4" />
 
-          <!-- Вспомогательные наклонные MB и MD -->
-          <line class="svg-aux-line" x1="96" y1="48" x2="240" y2="168" />
-          <line class="svg-aux-line" x1="96" y1="48" x2="144" y2="264" />
+          <!-- Наклонные MA и MB: от M(10,2) к A(5,9) и B(15,9) -->
+          <line x1="${G(10)}" y1="${G(2)}" x2="${G(5)}" y2="${G(9)}"
+                stroke="var(--ink-main)" stroke-width="2.4" />
+          <line x1="${G(10)}" y1="${G(2)}" x2="${G(15)}" y2="${G(9)}"
+                stroke="var(--ink-main)" stroke-width="2.4" />
 
-          <!-- Квадратик прямого угла ∠MAB = 90° (12x12px) -->
-          <polyline class="svg-right-angle" points="96,156 108,156 108,168" />
+          <!-- Маркеры прямых углов ∠MHA = ∠MHB = 90° -->
+          <polyline points="${G(10) - 11},${G(8) + 2} ${G(10) - 11},${G(8) - 10} ${G(10)},${G(8) - 10}"
+                    fill="none" stroke="var(--ink-green)" stroke-width="1.8" />
+          <polyline points="${G(10) + 11},${G(8) + 2} ${G(10) + 11},${G(8) - 10} ${G(10)},${G(8) - 10}"
+                    fill="none" stroke="var(--ink-green)" stroke-width="1.8" />
 
-          <!-- Прямой угол между диагоналями квадрата AC ⊥ BD и MO ⊥ BD в точке O(192,216) -->
-          <polygon class="svg-right-angle" points="192,216 184,212 190,204 198,208" />
+          <!-- Узловые точки -->
+          ${nodeDot(10, 2)}
+          ${nodeDot(10, 8)}
+          ${nodeDot(5, 9)}
+          ${nodeDot(15, 9)}
 
-          <!-- Вершины строго в узлах клеток -->
-          <circle class="svg-vertex" cx="96" cy="48" r="4" />
-          <circle class="svg-vertex" cx="96" cy="168" r="4" />
-          <circle class="svg-vertex" cx="240" cy="168" r="4" />
-          <circle class="svg-vertex" cx="288" cy="264" r="4" />
-          <circle class="svg-vertex" cx="144" cy="264" r="4" />
-          <circle class="svg-vertex" cx="192" cy="216" r="4.2" />
-
-          <!-- Обозначения вершин -->
-          <text class="svg-label" x="75" y="52">M</text>
-          <text class="svg-label" x="75" y="172">A</text>
-          <text class="svg-label" x="248" y="166">B</text>
-          <text class="svg-label" x="296" y="268">C</text>
-          <text class="svg-label" x="124" y="270">D</text>
-          <text class="svg-label" x="198" y="232">O</text>
-
-          <!-- Координаты клеток -->
-          <text class="svg-coord-tag" x="104" y="46">M(4;2)</text>
-          <text class="svg-coord-tag" x="52" y="186">A(4;7)</text>
-          <text class="svg-coord-tag" x="244" y="184">B(10;7)</text>
-          <text class="svg-coord-tag" x="294" y="252">C(12;11)</text>
-          <text class="svg-coord-tag" x="96" y="282">D(6;11)</text>
-          <text class="svg-coord-tag" x="202" y="214">O(8;9)</text>
+          <!-- Буквенные обозначения -->
+          <text x="${G(10) - 6}" y="${G(2) - 8}" class="svg-math-label">M</text>
+          <text x="${G(10) - 6}" y="${G(8) + 19}" class="svg-math-label">H</text>
+          <text x="${G(5) - 18}" y="${G(9) + 6}" class="svg-math-label">A</text>
+          <text x="${G(15) + 8}" y="${G(9) + 6}" class="svg-math-label">B</text>
         </svg>
       `,
 
-      /* Чертеж к № 120: OK ⊥ (ABCD) из центра квадрата O */
-      task120: () => `
-        <svg class="geometry-svg" viewBox="0 0 384 288" xmlns="http://www.w3.org/2000/svg">
-          <!-- Квадрат ABCD: A(96,168)[4,7], B(240,168)[10,7], C(288,264)[12,11], D(144,264)[6,11] -->
-          <polygon class="svg-plane-1" points="96,168 240,168 288,264 144,264" />
+      // -----------------------------------------------------------------------
+      // Задача № 139(а) (В-2 №5) — Из равенства наклонных следует равенство проекций
+      // -----------------------------------------------------------------------
+      "139a": () => `
+        <svg class="blueprint-svg" viewBox="0 0 ${G(20)} ${G(13)}" xmlns="http://www.w3.org/2000/svg">
+          ${createNotebookGridDefs('139a')}
 
-          <!-- Диагонали AC и BD с центром O(192,216)[8,9] -->
-          <line class="svg-main-line" x1="96" y1="168" x2="288" y2="264" />
-          <line class="svg-main-line" x1="240" y1="168" x2="144" y2="264" />
+          <!-- Плоскость alpha: вершины (2,11), (16,11), (18,6), (4,6) -->
+          <polygon points="${G(2)},${G(11)} ${G(16)},${G(11)} ${G(18)},${G(6)} ${G(4)},${G(6)}"
+                   fill="var(--ink-plane)" stroke="var(--ink-plane-stroke)" stroke-width="2" stroke-linejoin="round" />
+          <text x="${G(3)}" y="${G(10) + 16}" class="svg-math-label">α</text>
 
-          <!-- Перпендикуляр OK ⊥ (ABCD): O(192,216)[8,9] — K(192,48)[8,2] -->
-          <line class="svg-main-line" x1="192" y1="48" x2="192" y2="216" />
+          <!-- Проекции HA и HB: от H(10,8) к A(5,9) и B(15,9) -->
+          <line x1="${G(10)}" y1="${G(8)}" x2="${G(5)}" y2="${G(9)}"
+                stroke="var(--ink-main)" stroke-width="2.2" stroke-dasharray="6,4" />
+          <line x1="${G(10)}" y1="${G(8)}" x2="${G(15)}" y2="${G(9)}"
+                stroke="var(--ink-main)" stroke-width="2.2" stroke-dasharray="6,4" />
 
-          <!-- Равные наклонные KA, KB, KC, KD -->
-          <line class="svg-accent-line" x1="192" y1="48" x2="96" y2="168" />
-          <line class="svg-accent-line" x1="192" y1="48" x2="240" y2="168" />
-          <line class="svg-aux-line" x1="192" y1="48" x2="288" y2="264" />
-          <line class="svg-aux-line" x1="192" y1="48" x2="144" y2="264" />
+          <!-- Перпендикуляр MH: от M(10,2) до H(10,8) — 6 клеток вертикально -->
+          <line x1="${G(10)}" y1="${G(2)}" x2="${G(10)}" y2="${G(8)}"
+                stroke="var(--ink-main)" stroke-width="2.4" />
 
-          <!-- Прямой угол при O(192,216) -->
-          <polyline class="svg-right-angle" points="192,204 204,204 204,216" />
+          <!-- Наклонные MA и MB: от M(10,2) к A(5,9) и B(15,9) -->
+          <line x1="${G(10)}" y1="${G(2)}" x2="${G(5)}" y2="${G(9)}"
+                stroke="var(--ink-accent)" stroke-width="2.5" />
+          <line x1="${G(10)}" y1="${G(2)}" x2="${G(15)}" y2="${G(9)}"
+                stroke="var(--ink-accent)" stroke-width="2.5" />
 
-          <!-- Вершины -->
-          <circle class="svg-vertex" cx="192" cy="48" r="4" />
-          <circle class="svg-vertex" cx="192" cy="216" r="4" />
-          <circle class="svg-vertex" cx="96" cy="168" r="4" />
-          <circle class="svg-vertex" cx="240" cy="168" r="4" />
-          <circle class="svg-vertex" cx="288" cy="264" r="4" />
-          <circle class="svg-vertex" cx="144" cy="264" r="4" />
+          <!-- Двойные засечки равенства наклонных MA = MB (по условию) -->
+          <line x1="${G(7) + 4}" y1="${G(5) + 6}" x2="${G(7) + 18}" y2="${G(5) + 14}" stroke="var(--ink-red)" stroke-width="2" />
+          <line x1="${G(7) + 1}" y1="${G(5) + 11}" x2="${G(7) + 15}" y2="${G(5) + 19}" stroke="var(--ink-red)" stroke-width="2" />
 
-          <text class="svg-label" x="198" y="46">K</text>
-          <text class="svg-label" x="198" y="234">O</text>
-          <text class="svg-label" x="76" y="172">A</text>
-          <text class="svg-label" x="248" y="168">B</text>
-          <text class="svg-label" x="296" y="268">C</text>
-          <text class="svg-label" x="124" y="270">D</text>
-          <text class="svg-metric" x="198" y="128">OK = b</text>
-          <text class="svg-metric" x="148" y="164">a</text>
-        </svg>
-      `,
+          <line x1="${G(12) + 20}" y1="${G(5) + 6}" x2="${G(12) + 6}" y2="${G(5) + 14}" stroke="var(--ink-red)" stroke-width="2" />
+          <line x1="${G(12) + 23}" y1="${G(5) + 11}" x2="${G(12) + 9}" y2="${G(5) + 19}" stroke="var(--ink-red)" stroke-width="2" />
 
-      /* Чертеж к № 121: Прямоугольный △ABC, медиана CM, перпендикуляр CK ⊥ (ABC) */
-      task121: () => `
-        <svg class="geometry-svg" viewBox="0 0 384 264" xmlns="http://www.w3.org/2000/svg">
-          <!-- Прямоугольный △ABC: C(120,168)[5,7], A(72,240)[3,10], B(312,168)[13,7] -->
-          <polygon class="svg-plane-1" points="120,168 72,240 312,168" />
+          <!-- Маркеры прямых углов ∠MHA = ∠MHB = 90° -->
+          <polyline points="${G(10) - 11},${G(8) + 2} ${G(10) - 11},${G(8) - 10} ${G(10)},${G(8) - 10}"
+                    fill="none" stroke="var(--ink-green)" stroke-width="1.8" />
+          <polyline points="${G(10) + 11},${G(8) + 2} ${G(10) + 11},${G(8) - 10} ${G(10)},${G(8) - 10}"
+                    fill="none" stroke="var(--ink-green)" stroke-width="1.8" />
 
-          <!-- Медиана CM к середине гипотенузы AB: M = ((72+312)/2, (240+168)/2) = (192,204) -> выберем B(312,144)[13,6], A(72,240)[3,10] => M(192,192)[8,8]! -->
-          <!-- Перерисуем с идеальным попаданием середины M(192,192)[8,8] в узел клетки! -->
-          <rect x="0" y="0" width="384" height="264" fill="none" />
+          <!-- Узловые точки -->
+          ${nodeDot(10, 2)}
+          ${nodeDot(10, 8)}
+          ${nodeDot(5, 9)}
+          ${nodeDot(15, 9)}
+
+          <!-- Буквенные обозначения -->
+          <text x="${G(10) - 6}" y="${G(2) - 8}" class="svg-math-label">M</text>
+          <text x="${G(10) - 6}" y="${G(8) + 19}" class="svg-math-label">H</text>
+          <text x="${G(5) - 18}" y="${G(9) + 6}" class="svg-math-label">A</text>
+          <text x="${G(15) + 8}" y="${G(9) + 6}" class="svg-math-label">B</text>
         </svg>
       `
     };
 
-    /* Переопределим task121 так, чтобы A, B, C, K и середина M идеально попали в узлы 24px:
-       C = (96, 168)[4,7], A = (72, 240)[3,10], B = (312, 144)[13,6] => M = ((3+13)/2, (10+6)/2) = (8,8) = (192, 192)!
-       K = (96, 48)[4,2]. Все 5 точек строго кратны 24! */
-    SVG_DRAWINGS.task121 = () => `
-      <svg class="geometry-svg" viewBox="0 0 384 264" xmlns="http://www.w3.org/2000/svg">
-        <!-- Треугольник ABC: C(96,168)[4,7], A(72,240)[3,10], B(312,144)[13,6] -->
-        <polygon class="svg-plane-1" points="96,168 72,240 312,144" />
-
-        <!-- Выделение △KCM: K(96,48)[4,2], C(96,168)[4,7], M(192,192)[8,8] -->
-        <polygon points="96,48 96,168 192,192" fill="rgba(220,38,38,0.1)" />
-
-        <!-- Медиана CM: C(96,168)[4,7] — M(192,192)[8,8] -->
-        <line class="svg-main-line" x1="96" y1="168" x2="192" y2="192" />
-
-        <!-- Перпендикуляр CK ⊥ (ABC): K(96,48)[4,2] — C(96,168)[4,7] -->
-        <line class="svg-main-line" x1="96" y1="48" x2="96" y2="168" />
-
-        <!-- Искомый отрезок KM: K(96,48)[4,2] — M(192,192)[8,8] -->
-        <line class="svg-accent-line" x1="96" y1="48" x2="192" y2="192" />
-
-        <!-- Прямой угол ∠KCM = 90° -->
-        <polyline class="svg-right-angle" points="96,156 108,159 108,171" />
-
-        <!-- Засечки равенства AM = MB = CM -->
-        <line class="svg-main-line" x1="128" y1="212" x2="136" y2="222" />
-        <line class="svg-main-line" x1="248" y1="164" x2="256" y2="174" />
-
-        <!-- Вершины строго в узлах клеток -->
-        <circle class="svg-vertex" cx="96" cy="48" r="4" />
-        <circle class="svg-vertex" cx="96" cy="168" r="4" />
-        <circle class="svg-vertex" cx="72" cy="240" r="4" />
-        <circle class="svg-vertex" cx="312" cy="144" r="4" />
-        <circle class="svg-vertex" cx="192" cy="192" r="4" />
-
-        <text class="svg-label" x="76" y="52">K</text>
-        <text class="svg-label" x="74" y="170">C</text>
-        <text class="svg-label" x="52" y="246">A</text>
-        <text class="svg-label" x="320" y="148">B</text>
-        <text class="svg-label" x="196" y="212">M</text>
-
-        <text class="svg-metric" x="42" y="114">CK = 12 см</text>
-        <text class="svg-metric" x="152" y="116">KM = 13 см</text>
-        <text class="svg-metric" x="128" y="172">CM = 5</text>
-
-        <!-- Координаты клеток -->
-        <text class="svg-coord-tag" x="104" y="46">K(4;2)</text>
-        <text class="svg-coord-tag" x="48" y="156">C(4;7)</text>
-        <text class="svg-coord-tag" x="80" y="256">A(3;10)</text>
-        <text class="svg-coord-tag" x="300" y="132">B(13;6)</text>
-        <text class="svg-coord-tag" x="196" y="184">M(8;8)</text>
-      </svg>
-    `;
-
-    /* Полная база эталонных решений (стандарт «5++») */
+    // =========================================================================
+    // 3. БАЗА ЭТАЛОННЫХ АКАДЕМИЧЕСКИХ РЕШЕНИЙ (ВАРИАНТ 1 И ВАРИАНТ 2)
+    // =========================================================================
     const PROBLEMS_DB = {
-      "123": {
-        id: "123",
-        bookNum: "№ 123",
-        topic: "Параллельность двух плоскостей",
-        statement: "Докажите, что если две плоскости \\(\\alpha\\) и \\(\\beta\\) перпендикулярны к прямой \\(a\\), то они параллельны.",
-        dano: "\\(a \\perp \\alpha\\), \\(a \\perp \\beta\\).",
-        goalTitle: "Доказать",
-        goal: "\\(\\alpha \\parallel \\beta\\).",
-        svgKey: "task123",
-        solutionTitle: "Доказательство",
-        steps: [
-          "Проведем прямую \\(c \\parallel a\\), пересекающую плоскости \\(\\alpha\\) и \\(\\beta\\) в различных точках \\(A\\) и \\(B\\) (\\(A \\in \\alpha\\), \\(B \\in \\beta\\)).",
-          "Так как \\(a \\perp \\alpha\\), \\(a \\perp \\beta\\) и \\(AB \\parallel a\\), то \\(AB \\perp \\alpha\\) и \\(AB \\perp \\beta\\) <span class='justification'>(по теореме о двух параллельных прямых, одна из которых перпендикулярна к плоскости)</span>.",
-          "Предположим противное: плоскости \\(\\alpha\\) и \\(\\beta\\) не параллельны (\\(\\alpha \\nparallel \\beta\\)), т. е. имеют хотя бы одну общую точку \\(M\\) (\\(M \\in \\alpha\\), \\(M \\in \\beta\\)).",
-          "Проведем прямые \\(AM \\subset \\alpha\\) и \\(BM \\subset \\beta\\). Так как \\(AB \\perp \\alpha\\) и \\(AB \\perp \\beta\\), то \\(AB \\perp AM\\) и \\(AB \\perp BM\\) <span class='justification'>(по определению прямой, перпендикулярной к плоскости)</span>.",
-          "В треугольнике \\(\\triangle ABM\\) получаем два прямых угла (\\(\\angle MAB = 90^\\circ\\) и \\(\\angle MBA = 90^\\circ\\)), что невозможно <span class='justification'>(по теореме о сумме углов треугольника \\(\\angle A + \\angle B + \\angle M = 180^\\circ\\))</span>.",
-          "Следовательно, допущение неверно, плоскости \\(\\alpha\\) и \\(\\beta\\) не имеют общих точек, т. е. \\(\\alpha \\parallel \\beta\\) <span class='justification'>(по определению параллельных плоскостей)</span>."
+      "153": {
+        ref: "№ 153",
+        topic: "Обратная теорема о трёх перпендикулярах",
+        statement: "Докажите, что прямая \\(a\\), проведенная в плоскости \\(\\alpha\\) через основание \\(M\\) наклонной \\(AM\\) перпендикулярно к ней, перпендикулярна к ее проекции \\(HM\\).",
+        dano: [
+          "\\(\\alpha\\) — плоскость;",
+          "\\(AH \\perp \\alpha,\\; H \\in \\alpha\\);",
+          "\\(AM\\) — наклонная, \\(M \\in \\alpha\\);",
+          "\\(HM\\) — проекция \\(AM\\) на \\(\\alpha\\);",
+          "\\(a \\subset \\alpha,\\; M \\in a\\);",
+          "\\(a \\perp AM\\)."
         ],
-        answer: "\\(\\alpha \\parallel \\beta\\), ч. т. д.",
-        plainCopy: "№ 123.\nДано: a ⊥ α, a ⊥ β.\nДоказать: α ∥ β.\nДоказательство:\n1) Проведем прямую AB ∥ a (A ∈ α, B ∈ β).\n2) Т.к. a ⊥ α, a ⊥ β и AB ∥ a, то AB ⊥ α и AB ⊥ β (по теореме о параллельных прямых, перпендикулярных плоскости).\n3) Пусть α ∦ β, тогда существует общая точка M (M ∈ α, M ∈ β).\n4) Т.к. AM ⊂ α и BM ⊂ β, то AB ⊥ AM (∠MAB = 90°) и AB ⊥ BM (∠MBA = 90°).\n5) В △ABM два прямых угла, что невозможно. Значит, α ∥ β. Ч.т.д."
+        goalType: "Доказать",
+        goal: "\\(a \\perp HM\\).",
+        steps: [
+          "Так как \\(AH \\perp \\alpha\\) (по условию), а прямая \\(a \\subset \\alpha\\), то \\(AH \\perp a\\) <span class='step-reason'>(по определению прямой, перпендикулярной к плоскости)</span>.",
+          "По условию \\(a \\perp AM\\), и по п. 1 выполняется \\(a \\perp AH\\). Прямые \\(AM\\) и \\(AH\\) пересекаются в точке \\(A\\) и определяют плоскость \\((AMH)\\).",
+          "Следовательно, \\(a \\perp (AMH)\\) <span class='step-reason'>(по признаку перпендикулярности прямой и плоскости: прямая перпендикулярна двум пересекающимся прямым плоскости)</span>.",
+          "Так как проекция \\(HM \\subset (AMH)\\), а прямая \\(a \\perp (AMH)\\), то \\(a \\perp HM\\) <span class='step-reason'>(по определению прямой, перпендикулярной к плоскости)</span>. Что и требовалось доказать."
+        ],
+        answer: "\\(a \\perp HM\\) (доказано)",
+        shortCheat: "№153: a ⊥ (AMH) ⇒ a ⊥ HM",
+        blueprintKey: "153"
       },
 
-      "133": {
-        id: "133",
-        bookNum: "№ 133",
-        topic: "Единственность перпендикулярной плоскости",
-        statement: "Докажите, что через любую точку пространства проходит только одна плоскость, перпендикулярная к данной прямой.",
-        dano: "прямая \\(a\\), точка \\(M\\).",
-        goalTitle: "Доказать",
-        goal: "\\(\\exists!\\, \\alpha : M \\in \\alpha,\\; \\alpha \\perp a\\).",
-        svgKey: "task133",
-        solutionTitle: "Доказательство",
-        steps: [
-          "Через данную точку \\(M\\) проходит плоскость \\(\\alpha\\), перпендикулярная к прямой \\(a\\) <span class='justification'>(по теореме о существовании плоскости, проходящей через точку перпендикулярно прямой — п. 17)</span>.",
-          "Докажем единственность методом от противного. Предположим, что через точку \\(M\\) проходит еще одна плоскость \\(\\alpha_1\\), также перпендикулярная к прямой \\(a\\) (\\(\\alpha_1 \\perp a\\), \\(M \\in \\alpha_1\\)).",
-          "Так как \\(\\alpha \\perp a\\) и \\(\\alpha_1 \\perp a\\), то \\(\\alpha \\parallel \\alpha_1\\) <span class='justification'>(по свойству двух плоскостей, перпендикулярных к одной прямой — задача № 123)</span>.",
-          "Однако плоскости \\(\\alpha\\) и \\(\\alpha_1\\) имеют общую точку \\(M\\) (\\(M \\in \\alpha \\cap \\alpha_1\\)), что противоречит определению параллельных плоскостей.",
-          "Следовательно, предположение неверно, и через точку \\(M\\) проходит только одна плоскость \\(\\alpha \\perp a\\)."
+      "162": {
+        ref: "№ 162",
+        topic: "Свойство угла между прямой и плоскостью",
+        statement: "Прямая \\(MA\\) проходит через точку \\(A\\) плоскости \\(\\alpha\\) и образует с этой плоскостью угол \\(\\varphi_0 \\neq 90^\\circ\\). Докажите, что \\(\\varphi_0\\) является наименьшим из всех углов, которые прямая \\(MA\\) образует с прямыми, проведенными в плоскости \\(\\alpha\\) через точку \\(A\\).",
+        dano: [
+          "\\(MA \\cap \\alpha = A\\);",
+          "\\(MH \\perp \\alpha,\\; H \\in \\alpha\\);",
+          "\\(AH\\) — проекция \\(MA\\) на \\(\\alpha\\);",
+          "\\(\\angle MAH = \\varphi_0\\; (\\varphi_0 \\neq 90^\\circ)\\);",
+          "\\(p \\subset \\alpha,\\; A \\in p,\\; p \\neq AH\\);",
+          "\\(\\angle(MA, p) = \\varphi\\)."
         ],
-        answer: "Плоскость \\(\\alpha \\perp a\\) единственна, ч. т. д.",
-        plainCopy: "№ 133.\nДано: прямая a, точка M.\nДоказать: существует единственная пл. α : M ∈ α, α ⊥ a.\nДоказательство:\n1) Через точку M проходит плоскость α ⊥ a (по задаче п. 17).\n2) Предположим, что через точку M проходит еще одна плоскость α₁ ⊥ a.\n3) Т.к. α ⊥ a и α₁ ⊥ a, то α ∥ α₁ (по свойству плоскостей, перпендикулярных одной прямой).\n4) Но плоскости α и α₁ имеют общую точку M, что невозможно для параллельных плоскостей.\n5) Следовательно, через точку M проходит только одна плоскость, перпендикулярная прямой a. Ч.т.д."
+        goalType: "Доказать",
+        goal: "\\(\\varphi_0 < \\varphi\\).",
+        steps: [
+          "Проведем \\(MH \\perp \\alpha\\; (H \\in \\alpha)\\). Тогда \\(AH\\) — проекция наклонной \\(MA\\) на плоскость \\(\\alpha\\), следовательно, \\(\\angle MAH = \\varphi_0\\) <span class='step-reason'>(по определению угла между прямой и плоскостью)</span>.",
+          "Через точку \\(M\\) проведем перпендикуляр \\(MN \\perp p\\; (N \\in p)\\). Если точка \\(N\\) совпадает с точкой \\(A\\), то \\(\\varphi = 90^\\circ\\). Так как \\(\\varphi_0\\) — острый угол прямоугольного \\(\\triangle MAH\\; (\\angle MHA = 90^\\circ)\\), то \\(\\varphi_0 < 90^\\circ = \\varphi\\).",
+          "Пусть точки \\(A\\) и \\(N\\) не совпадают. В прямоугольных треугольниках \\(\\triangle MAH\\; (\\angle MHA = 90^\\circ)\\) и \\(\\triangle MAN\\; (\\angle MNA = 90^\\circ)\\) гипотенуза \\(AM\\) — общая: \\[\\sin\\varphi_0 = \\frac{MH}{AM}, \\quad \\sin\\varphi = \\frac{MN}{AM} \\quad \\text{(по определению синуса острого угла).}\\]",
+          "Отрезок \\(MH\\) — перпендикуляр к плоскости \\(\\alpha\\), а \\(MN\\) — наклонная к \\(\\alpha\\) (так как \\(p \\neq AH \\Rightarrow N \\neq H\\)). Следовательно: \\[MH < MN \\quad \\text{(перпендикуляр короче наклонной).}\\]",
+          "Разделив обе части неравенства \\(MH < MN\\) на \\(AM > 0\\), получаем: \\[\\frac{MH}{AM} < \\frac{MN}{AM} \\implies \\sin\\varphi_0 < \\sin\\varphi.\\]",
+          "Так как \\(\\varphi_0, \\varphi \\in (0^\\circ; 90^\\circ]\\) и функция \\(y = \\sin x\\) строго возрастает на \\([0^\\circ; 90^\\circ]\\), из неравенства \\(\\sin\\varphi_0 < \\sin\\varphi\\) следует \\(\\varphi_0 < \\varphi\\). Что и требовалось доказать."
+        ],
+        answer: "\\(\\varphi_0 < \\varphi\\) (доказано)",
+        shortCheat: "№162: sin φ₀ = MH/AM < MN/AM = sin φ",
+        blueprintKey: "162"
       },
 
-      "119a": {
-        id: "119a",
-        bookNum: "№ 119 (а)",
-        topic: "Перпендикулярность прямой и плоскости",
-        statement: "Прямая \\(OA\\) перпендикулярна к плоскости \\(OBC\\), и точка \\(O\\) является серединой отрезка \\(AD\\). Докажите, что: а) \\(AB = DB\\).",
-        dano: "\\(OA \\perp (OBC)\\), \\(O \\in AD\\), \\(AO = OD\\).",
-        goalTitle: "Доказать",
-        goal: "\\(AB = DB\\).",
-        svgKey: "task119a",
-        solutionTitle: "Доказательство",
-        steps: [
-          "Так как \\(OA \\perp (OBC)\\) и \\(O \\in AD\\), то прямая \\(AD \\perp (OBC)\\).",
-          "Поскольку прямая \\(OB \\subset (OBC)\\), то \\(AD \\perp OB\\) <span class='justification'>(по определению прямой, перпендикулярной к плоскости)</span>. Следовательно, \\(\\angle AOB = \\angle DOB = 90^\\circ\\).",
-          "Рассмотрим прямоугольные треугольники \\(\\triangle AOB\\) и \\(\\triangle DOB\\):<br>• \\(AO = OD\\) <span class='justification'>(по условию, т. к. \\(O\\) — середина \\(AD\\))</span>;<br>• катет \\(OB\\) — общий;<br>• \\(\\angle AOB = \\angle DOB = 90^\\circ\\).",
-          "Следовательно, \\(\\triangle AOB = \\triangle DOB\\) <span class='justification'>(по двум катетам)</span>.",
-          "Из равенства треугольников следует равенство их гипотенуз: \\(AB = DB\\)."
+      "144": {
+        ref: "№ 144",
+        topic: "Расстояние от прямой до параллельной плоскости",
+        statement: "Прямая \\(a\\) параллельна плоскости \\(\\alpha\\). Докажите, что все точки прямой \\(a\\) равноудалены от плоскости \\(\\alpha\\).",
+        dano: [
+          "\\(a \\parallel \\alpha\\);",
+          "\\(A \\in a,\\; B \\in a\\) — произвольные точки;",
+          "\\(AA_1 \\perp \\alpha,\\; A_1 \\in \\alpha\\);",
+          "\\(BB_1 \\perp \\alpha,\\; B_1 \\in \\alpha\\)."
         ],
-        answer: "\\(AB = DB\\), ч. т. д.",
-        plainCopy: "№ 119 (а).\nДано: OA ⊥ (OBC), O ∈ AD, AO = OD.\nДоказать: AB = DB.\nДоказательство:\n1) Т.к. OA ⊥ (OBC) и O ∈ AD, то AD ⊥ (OBC).\n2) Прямая OB ⊂ (OBC) ⇒ AD ⊥ OB (по определению прямой, перпендикулярной плоскости), значит ∠AOB = ∠DOB = 90°.\n3) В прямоугольных △AOB и △DOB: AO = OD (по условию), катет OB — общий.\n4) △AOB = △DOB (по двум катетам) ⇒ AB = DB. Ч.т.д."
+        goalType: "Доказать",
+        goal: "\\(AA_1 = BB_1\\).",
+        steps: [
+          "<b>Способ 1 (через перпендикуляры):</b> Так как \\(AA_1 \\perp \\alpha\\) и \\(BB_1 \\perp \\alpha\\), то \\(AA_1 \\parallel BB_1\\) <span class='step-reason'>(две прямые, перпендикулярные одной плоскости, параллельны)</span>.",
+          "Параллельные прямые \\(AA_1\\) и \\(BB_1\\) задают плоскость \\((AA_1B_1)\\), которая пересекает плоскость \\(\\alpha\\) по прямой \\(A_1B_1\\).",
+          "Так как \\(a \\parallel \\alpha\\), а прямая \\(a = AB\\) лежит в плоскости \\((AA_1B_1)\\), то \\(AB \\parallel A_1B_1\\) <span class='step-reason'>(по свойству прямой, параллельной плоскости)</span>.",
+          "В четырехугольнике \\(AA_1B_1B\\) противоположные стороны попарно параллельны (\\(AA_1 \\parallel BB_1\\) и \\(AB \\parallel A_1B_1\\)) и \\(\\angle AA_1B_1 = 90^\\circ\\), значит \\(AA_1B_1B\\) — прямоугольник. Следовательно, \\(AA_1 = BB_1\\) <span class='step-reason'>(как противоположные стороны прямоугольника)</span>.",
+          "<b>Способ 2 (по учебнику через плоскость \\(\\beta\\)):</b> Через точку прямой \\(a\\) проведем плоскость \\(\\beta \\parallel \\alpha\\). Прямая \\(a \\subset \\beta\\) (иначе \\(a\\) пересекала бы \\(\\beta\\), а значит и \\(\\alpha\\), что противоречит \\(a \\parallel \\alpha\\)). Все точки плоскости \\(\\beta\\) равноудалены от \\(\\alpha\\), следовательно, и все точки прямой \\(a \\subset \\beta\\) равноудалены от \\(\\alpha\\)."
+        ],
+        answer: "\\(AA_1 = BB_1\\) (доказано)",
+        shortCheat: "№144: AA₁B₁B — прямоугольник ⇒ AA₁ = BB₁",
+        blueprintKey: "144"
       },
 
-      "119b": {
-        id: "119b",
-        bookNum: "№ 119 (б)",
-        topic: "Перпендикулярность прямой и плоскости",
-        statement: "Прямая \\(OA\\) перпендикулярна к плоскости \\(OBC\\), и точка \\(O\\) является серединой отрезка \\(AD\\). Докажите, что: б) \\(AB = AC\\), если \\(OB = OC\\).",
-        dano: "\\(OA \\perp (OBC)\\), \\(O \\in AD\\), \\(AO = OD\\), \\(OB = OC\\).",
-        goalTitle: "Доказать",
-        goal: "\\(AB = AC\\).",
-        svgKey: "task119b",
-        solutionTitle: "Доказательство",
-        steps: [
-          "По условию \\(OA \\perp (OBC)\\), а прямые \\(OB \\subset (OBC)\\) и \\(OC \\subset (OBC)\\).",
-          "Следовательно, \\(OA \\perp OB\\) и \\(OA \\perp OC\\) <span class='justification'>(по определению прямой, перпендикулярной к плоскости)</span>, откуда \\(\\angle AOB = \\angle AOC = 90^\\circ\\).",
-          "Рассмотрим прямоугольные треугольники \\(\\triangle AOB\\) и \\(\\triangle AOC\\):<br>• катет \\(OA\\) — общий;<br>• \\(OB = OC\\) <span class='justification'>(по условию)</span>;<br>• \\(\\angle AOB = \\angle AOC = 90^\\circ\\).",
-          "Значит, \\(\\triangle AOB = \\triangle AOC\\) <span class='justification'>(по двум катетам)</span>.",
-          "Из равенства прямоугольных треугольников следует равенство гипотенуз: \\(AB = AC\\)."
+      "141": {
+        ref: "№ 141",
+        topic: "Расстояние от точки до плоскости • Средняя линия треугольника",
+        statement: "Один конец данного отрезка лежит в плоскости \\(\\alpha\\), а другой находится от нее на расстоянии \\(6\\text{ см}\\). Найдите расстояние от середины данного отрезка до плоскости \\(\\alpha\\).",
+        dano: [
+          "\\(AB\\) — отрезок, \\(A \\in \\alpha,\\; B \\notin \\alpha\\);",
+          "\\(BB_1 \\perp \\alpha\\; (B_1 \\in \\alpha),\\; BB_1 = 6\\text{ см}\\);",
+          "\\(M \\in AB,\\; AM = MB\\);",
+          "\\(MM_1 \\perp \\alpha\\; (M_1 \\in \\alpha)\\)."
         ],
-        answer: "\\(AB = AC\\), ч. т. д.",
-        plainCopy: "№ 119 (б).\nДано: OA ⊥ (OBC), AO = OD, OB = OC.\nДоказать: AB = AC.\nДоказательство:\n1) Т.к. OA ⊥ (OBC), а OB ⊂ (OBC) и OC ⊂ (OBC), то OA ⊥ OB и OA ⊥ OC (по определению прямой, перпендикулярной плоскости).\n2) В прямоугольных △AOB и △AOC (∠AOB = ∠AOC = 90°): катет OA — общий, OB = OC (по условию).\n3) △AOB = △AOC (по двум катетам) ⇒ AB = AC. Ч.т.д."
+        goalType: "Найти",
+        goal: "\\(MM_1\\).",
+        steps: [
+          "Так как \\(MM_1 \\perp \\alpha\\) и \\(BB_1 \\perp \\alpha\\) (по условию), то \\(MM_1 \\parallel BB_1\\) <span class='step-reason'>(две прямые, перпендикулярные одной плоскости, параллельны)</span>.",
+          "Через пересекающиеся прямые \\(AB\\) и \\(BB_1\\) проходит плоскость \\((ABB_1)\\), пересекающая плоскость \\(\\alpha\\) по прямой \\(AB_1\\). Точка \\(M_1\\) лежит на отрезке \\(AB_1\\).",
+          "Рассмотрим прямоугольный \\(\\triangle ABB_1\\; (\\angle AB_1B = 90^\\circ)\\): точка \\(M\\) — середина гипотенузы \\(AB\\) и \\(MM_1 \\parallel BB_1\\). Следовательно, \\(MM_1\\) — средняя линия \\(\\triangle ABB_1\\) <span class='step-reason'>(по признаку средней линии треугольника)</span>.",
+          "Найдем длину \\(MM_1\\) по свойству средней линии треугольника: \\[MM_1 = \\frac{1}{2} BB_1 = \\frac{1}{2} \\cdot 6 = 3\\text{ (см).}\\]"
+        ],
+        answer: "\\(3\\text{ см}\\)",
+        shortCheat: "№141: MM₁ = ½ BB₁ = 3 см",
+        blueprintKey: "141"
       },
 
-      "125": {
-        id: "125",
-        bookNum: "№ 125",
-        topic: "Параллельные перпендикуляры к плоскости",
-        statement: "Через точки \\(P\\) и \\(Q\\) прямой \\(PQ\\) проведены прямые, перпендикулярные к плоскости \\(\\alpha\\) и пересекающие ее соответственно в точках \\(P_1\\) и \\(Q_1\\). Найдите \\(P_1Q_1\\), если \\(PQ = 15\\text{ см}\\), \\(PP_1 = 21{,}5\\text{ см}\\), \\(QQ_1 = 33{,}5\\text{ см}\\).",
-        dano: "\\(PP_1 \\perp \\alpha\\), \\(QQ_1 \\perp \\alpha\\) (\\(P_1, Q_1 \\in \\alpha\\));<br>\\(PQ = 15\\text{ см}\\), \\(PP_1 = 21{,}5\\text{ см}\\), \\(QQ_1 = 33{,}5\\text{ см}\\).",
-        goalTitle: "Найти",
-        goal: "\\(P_1Q_1\\).",
-        svgKey: "task125",
-        solutionTitle: "Решение",
-        steps: [
-          "Так как \\(PP_1 \\perp \\alpha\\) и \\(QQ_1 \\perp \\alpha\\), то \\(PP_1 \\parallel QQ_1\\) <span class='justification'>(по теореме о двух прямых, перпендикулярных к одной плоскости)</span>. Прямые \\(PP_1\\) и \\(QQ_1\\) задают плоскость \\((PP_1Q_1)\\), пересекающую \\(\\alpha\\) по прямой \\(P_1Q_1\\).",
-          "Поскольку \\(PP_1 \\perp \\alpha\\), \\(QQ_1 \\perp \\alpha\\) и \\(P_1Q_1 \\subset \\alpha\\), то \\(PP_1 \\perp P_1Q_1\\) и \\(QQ_1 \\perp P_1Q_1\\) <span class='justification'>(по определению прямой, перпендикулярной к плоскости)</span>.",
-          "Точки \\(P\\) и \\(Q\\) лежат по одну сторону от плоскости \\(\\alpha\\) <span class='justification'>(иначе \\(PQ > PP_1 + QQ_1 = 55\\text{ см}\\), что противоречит \\(PQ = 15\\text{ см}\\))</span>. Четырехугольник \\(P_1PQQ_1\\) — прямоугольная трапеция.",
-          "Проведем \\(PH \\perp QQ_1\\) (\\(H \\in QQ_1\\)). Тогда \\(P_1PHQ_1\\) — прямоугольник, следовательно:<br>\\[PH = P_1Q_1, \\quad HQ_1 = PP_1 = 21{,}5\\text{ см}.\\]",
-          "Найдем катет \\(QH\\) прямоугольного \\(\\triangle PHQ\\) (\\(\\angle PHQ = 90^\\circ\\)):<br>\\[QH = QQ_1 - HQ_1 = 33{,}5 - 21{,}5 = 12\\text{ (см)}.\\]",
-          "Из прямоугольного \\(\\triangle PHQ\\) <span class='justification'>(по теореме Пифагора \\(PQ^2 = PH^2 + QH^2\\))</span>:<br>\\[PH = \\sqrt{PQ^2 - QH^2} = \\sqrt{15^2 - 12^2} = \\sqrt{225 - 144} = \\sqrt{81} = 9\\text{ (см)}.\\]",
-          "Следовательно, \\(P_1Q_1 = PH = 9\\text{ см}\\)."
+      "142": {
+        ref: "№ 142",
+        topic: "Расстояние от середины отрезка до плоскости (2 случая)",
+        statement: "Концы отрезка отстоят от плоскости \\(\\alpha\\) на расстояниях \\(1\\text{ см}\\) и \\(4\\text{ см}\\). Найдите расстояние от середины отрезка до плоскости \\(\\alpha\\).",
+        dano: [
+          "\\(AB\\) — отрезок, \\(M \\in AB,\\; AM = MB\\);",
+          "\\(AA_1 \\perp \\alpha,\\; BB_1 \\perp \\alpha,\\; MM_1 \\perp \\alpha\\);",
+          "\\(A_1, B_1, M_1 \\in \\alpha\\);",
+          "\\(AA_1 = 1\\text{ см},\\; BB_1 = 4\\text{ см}\\)."
         ],
-        answer: "\\(9\\text{ см}\\)",
-        plainCopy: "№ 125.\nДано: PP₁ ⊥ α, QQ₁ ⊥ α (P₁, Q₁ ∈ α); PQ = 15 см, PP₁ = 21,5 см, QQ₁ = 33,5 см.\nНайти: P₁Q₁.\nРешение:\n1) Т.к. PP₁ ⊥ α и QQ₁ ⊥ α, то PP₁ ∥ QQ₁ (по теореме о двух прямых, перпендикулярных к плоскости).\n2) PP₁ ⊥ P₁Q₁ и QQ₁ ⊥ P₁Q₁ (т.к. P₁Q₁ ⊂ α). P₁PQQ₁ — прямоугольная трапеция.\n3) Проведем PH ⊥ QQ₁ (H ∈ QQ₁). Тогда P₁PHQ₁ — прямоугольник ⇒ PH = P₁Q₁ и HQ₁ = PP₁ = 21,5 см.\n4) QH = QQ₁ - HQ₁ = 33,5 - 21,5 = 12 (см).\n5) В прямоугольном △PHQ (∠PHQ = 90°) по т. Пифагора:\nPH = √(PQ² - QH²) = √(15² - 12²) = √(225 - 144) = √81 = 9 (см).\n6) P₁Q₁ = PH = 9 см.\nОтвет: 9 см."
+        goalType: "Найти",
+        goal: "\\(MM_1\\).",
+        steps: [
+          "Так как \\(AA_1 \\perp \\alpha,\\; MM_1 \\perp \\alpha\\) и \\(BB_1 \\perp \\alpha\\), то \\(AA_1 \\parallel MM_1 \\parallel BB_1\\) <span class='step-reason'>(прямые, перпендикулярные одной плоскости, параллельны)</span>. Все они лежат в одной плоскости \\((AA_1B_1B)\\), пересекающей \\(\\alpha\\) по прямой \\(A_1B_1\\).",
+          "<b>I случай (точки \\(A\\) и \\(B\\) лежат по одну сторону от плоскости \\(\\alpha\\)):</b> Четырехугольник \\(AA_1B_1B\\) — прямоугольная трапеция с основаниями \\(AA_1\\) и \\(BB_1\\). Так как \\(AM = MB\\) и \\(MM_1 \\parallel BB_1\\), отрезок \\(MM_1\\) — средняя линия трапеции \\(AA_1B_1B\\): \\[MM_1 = \\frac{AA_1 + BB_1}{2} = \\frac{1 + 4}{2} = 2{,}5\\text{ (см).}\\]",
+          "<b>II случай (точки \\(A\\) и \\(B\\) лежат по разные стороны от плоскости \\(\\alpha\\)):</b> Отрезок \\(AB\\) пересекает плоскость \\(\\alpha\\). Тогда длина отрезка \\(MM_1\\) равна полуразности расстояний от концов отрезка до плоскости \\(\\alpha\\): \\[MM_1 = \\frac{BB_1 - AA_1}{2} = \\frac{4 - 1}{2} = 1{,}5\\text{ (см).}\\]"
+        ],
+        answer: "\\(2{,}5\\text{ см}\\) (или \\(1{,}5\\text{ см}\\))",
+        shortCheat: "№142: 2,5 см (I сл.) или 1,5 см (II сл.)",
+        blueprintKey: "142"
       },
 
-      "129b": {
-        id: "129b",
-        bookNum: "№ 129 (б)",
-        topic: "Признак перпендикулярности прямой и плоскости",
-        statement: "Прямая \\(AM\\) перпендикулярна к плоскости квадрата \\(ABCD\\), диагонали которого пересекаются в точке \\(O\\). Докажите, что: б) \\(MO \\perp BD\\).",
-        dano: "\\(ABCD\\) — квадрат, \\(AC \\cap BD = O\\), \\(AM \\perp (ABC)\\).",
-        goalTitle: "Доказать",
-        goal: "\\(MO \\perp BD\\).",
-        svgKey: "task129",
-        solutionTitle: "Доказательство",
-        steps: [
-          "Диагонали квадрата \\(ABCD\\) взаимно перпендикулярны: \\(BD \\perp AC\\), следовательно, \\(BD \\perp AO\\) <span class='justification'>(по свойству диагоналей квадрата)</span>.",
-          "По условию \\(AM \\perp (ABC)\\), а прямая \\(BD \\subset (ABC)\\), поэтому \\(AM \\perp BD\\) <span class='justification'>(по определению прямой, перпендикулярной к плоскости)</span>.",
-          "Прямая \\(BD\\) перпендикулярна двум пересекающимся прямым \\(AO\\) и \\(AM\\) плоскости \\((AMO)\\) (\\(AO \\cap AM = A\\)), значит, \\(BD \\perp (AMO)\\) <span class='justification'>(по признаку перпендикулярности прямой и плоскости)</span>.",
-          "Так как \\(BD \\perp (AMO)\\) и прямая \\(MO \\subset (AMO)\\), то \\(BD \\perp MO\\), т. е. \\(MO \\perp BD\\) <span class='justification'>(по определению прямой, перпендикулярной к плоскости)</span>."
+      "139b": {
+        ref: "№ 139(б)",
+        topic: "Перпендикуляр и наклонные • Равенство наклонных",
+        statement: "Из некоторой точки проведены к плоскости две наклонные. Докажите, что: б) если проекции наклонных равны, то равны и наклонные.",
+        dano: [
+          "\\(\\alpha\\) — плоскость, \\(M \\notin \\alpha\\);",
+          "\\(MH \\perp \\alpha\\; (H \\in \\alpha)\\);",
+          "\\(MA,\\; MB\\) — наклонные \\((A, B \\in \\alpha)\\);",
+          "\\(HA,\\; HB\\) — проекции наклонных;",
+          "\\(HA = HB\\)."
         ],
-        answer: "\\(MO \\perp BD\\), ч. т. д.",
-        plainCopy: "№ 129 (б).\nДано: ABCD — квадрат, AC ∩ BD = O, AM ⊥ (ABC).\nДоказать: MO ⊥ BD.\nДоказательство:\n1) Т.к. ABCD — квадрат, то его диагонали перпендикулярны: BD ⊥ AC ⇒ BD ⊥ AO (по свойству квадрата).\n2) Т.к. AM ⊥ (ABC) и BD ⊂ (ABC), то AM ⊥ BD (по определению прямой, перпендикулярной плоскости).\n3) Прямая BD перпендикулярна двум пересекающимся прямым AO и AM плоскости (AMO) (AO ∩ AM = A) ⇒ BD ⊥ (AMO) (по признаку перпендикулярности прямой и плоскости).\n4) Т.к. MO ⊂ (AMO) и BD ⊥ (AMO), то MO ⊥ BD. Ч.т.д."
+        goalType: "Доказать",
+        goal: "\\(MA = MB\\).",
+        steps: [
+          "Так как \\(MH \\perp \\alpha\\) (по условию), а прямые \\(HA \\subset \\alpha\\) и \\(HB \\subset \\alpha\\), то \\(MH \\perp HA\\) и \\(MH \\perp HB\\) <span class='step-reason'>(по определению прямой, перпендикулярной к плоскости)</span>.",
+          "Следовательно, треугольники \\(\\triangle MHA\\) и \\(\\triangle MHB\\) — прямоугольные (\\(\\angle MHA = \\angle MHB = 90^\\circ\\)).",
+          "Рассмотрим \\(\\triangle MHA\\) и \\(\\triangle MHB\\): катет \\(MH\\) — общий, \\(HA = HB\\) (по условию). Значит, \\(\\triangle MHA = \\triangle MHB\\) <span class='step-reason'>(по двум катетам)</span>.",
+          "Из равенства треугольников следует равенство их гипотенуз: \\[MA = MB \\quad \\text{(как соответственные стороны равных треугольников).}\\] Что и требовалось доказать."
+        ],
+        answer: "\\(MA = MB\\) (доказано)",
+        shortCheat: "№139(б): △MHA = △MHB по 2 катетам ⇒ MA = MB",
+        blueprintKey: "139b"
       },
 
-      "129a": {
-        id: "129a",
-        bookNum: "№ 129 (а)",
-        topic: "Признак перпендикулярности прямой и плоскости",
-        statement: "Прямая \\(AM\\) перпендикулярна к плоскости квадрата \\(ABCD\\), диагонали которого пересекаются в точке \\(O\\). Докажите, что: а) прямая \\(BD\\) перпендикулярна к плоскости \\(AMO\\).",
-        dano: "\\(ABCD\\) — квадрат, \\(AC \\cap BD = O\\), \\(AM \\perp (ABC)\\).",
-        goalTitle: "Доказать",
-        goal: "\\(BD \\perp (AMO)\\).",
-        svgKey: "task129",
-        solutionTitle: "Доказательство",
-        steps: [
-          "Так как \\(ABCD\\) — квадрат, его диагонали взаимно перпендикулярны: \\(BD \\perp AC\\) <span class='justification'>(по свойству диагоналей квадрата)</span>. Поскольку \\(O \\in AC\\), то \\(BD \\perp AO\\).",
-          "По условию \\(AM \\perp (ABC)\\). Так как \\(BD \\subset (ABC)\\), то \\(AM \\perp BD\\) <span class='justification'>(по определению прямой, перпендикулярной к плоскости)</span>.",
-          "Прямые \\(AO\\) и \\(AM\\) лежат в плоскости \\((AMO)\\) и пересекаются в точке \\(A\\) (\\(AO \\cap AM = A\\)).",
-          "Поскольку прямая \\(BD\\) перпендикулярна двум пересекающимся прямым \\(AO\\) и \\(AM\\) плоскости \\((AMO)\\), то \\(BD \\perp (AMO)\\) <span class='justification'>(по признаку перпендикулярности прямой и плоскости)</span>."
+      "139a": {
+        ref: "№ 139(а)",
+        topic: "Перпендикуляр и наклонные • Равенство проекций",
+        statement: "Из некоторой точки проведены к плоскости две наклонные. Докажите, что: а) если наклонные равны, то равны и их проекции.",
+        dano: [
+          "\\(\\alpha\\) — плоскость, \\(M \\notin \\alpha\\);",
+          "\\(MH \\perp \\alpha\\; (H \\in \\alpha)\\);",
+          "\\(MA,\\; MB\\) — наклонные \\((A, B \\in \\alpha)\\);",
+          "\\(HA,\\; HB\\) — проекции наклонных;",
+          "\\(MA = MB\\)."
         ],
-        answer: "\\(BD \\perp (AMO)\\), ч. т. д.",
-        plainCopy: "№ 129 (а).\nДано: ABCD — квадрат, AC ∩ BD = O, AM ⊥ (ABC).\nДоказать: BD ⊥ (AMO).\nДоказательство:\n1) Диагонали квадрата ABCD взаимно перпендикулярны: BD ⊥ AC ⇒ BD ⊥ AO (по свойству квадрата).\n2) Т.к. AM ⊥ (ABC) и BD ⊂ (ABC), то AM ⊥ BD (по определению прямой, перпендикулярной плоскости).\n3) Прямая BD перпендикулярна двум пересекающимся прямым AO и AM плоскости (AMO) (AO ∩ AM = A).\n4) Следовательно, BD ⊥ (AMO) (по признаку перпендикулярности прямой и плоскости). Ч.т.д."
-      },
-
-      "120": {
-        id: "120",
-        bookNum: "№ 120",
-        topic: "Расстояние от точки до вершин квадрата",
-        statement: "Через точку \\(O\\) пересечения диагоналей квадрата, сторона которого равна \\(a\\), проведена прямая \\(OK\\), перпендикулярная к плоскости квадрата. Найдите расстояние от точки \\(K\\) до вершин квадрата, если \\(OK = b\\) (и для случаев с пометок на полях: \\(b = 8\\text{ см}\\), 1) \\(a = 6\\text{ см}\\); 2) \\(a = 8\\text{ см}\\)).",
-        dano: "\\(ABCD\\) — квадрат, \\(AB = a\\), \\(AC \\cap BD = O\\), \\(OK \\perp (ABC)\\), \\(OK = b\\).",
-        goalTitle: "Найти",
-        goal: "\\(KA, KB, KC, KD\\).",
-        svgKey: "task120",
-        solutionTitle: "Решение",
+        goalType: "Доказать",
+        goal: "\\(HA = HB\\).",
         steps: [
-          "Диагонали квадрата равны и точкой пересечения \\(O\\) делятся пополам <span class='justification'>(по свойству квадрата)</span>:<br>\\[AC = BD = a\\sqrt{2} \\implies OA = OB = OC = OD = \\frac{a\\sqrt{2}}{2}.\\]",
-          "Так как \\(OK \\perp (ABC)\\), то \\(OK \\perp OA\\), \\(OK \\perp OB\\), \\(OK \\perp OC\\), \\(OK \\perp OD\\) <span class='justification'>(по определению прямой, перпендикулярной к плоскости)</span>.",
-          "Прямоугольные треугольники \\(\\triangle KOA, \\triangle KOB, \\triangle KOC, \\triangle KOD\\) равны <span class='justification'>(по двум катетам)</span>. По теореме Пифагора из \\(\\triangle KOA\\):<br>\\[KA = KB = KC = KD = \\sqrt{OK^2 + OA^2} = \\sqrt{b^2 + \\left(\\frac{a\\sqrt{2}}{2}\\right)^2} = \\sqrt{b^2 + \\frac{a^2}{2}}.\\]",
-          "Подстановка значений с рукописных пометок (\\(b = 8\\text{ см}\\)):<br>• 1) при \\(a = 6\\text{ см}\\): \\(KA = \\sqrt{8^2 + \\frac{6^2}{2}} = \\sqrt{64 + 18} = \\sqrt{82}\\text{ см}\\);<br>• 2) при \\(a = 8\\text{ см}\\): \\(KA = \\sqrt{8^2 + \\frac{8^2}{2}} = \\sqrt{64 + 32} = \\sqrt{96} = 4\\sqrt{6}\\text{ см}\\)."
+          "Так как \\(MH \\perp \\alpha\\) (по условию), а прямые \\(HA \\subset \\alpha\\) и \\(HB \\subset \\alpha\\), то \\(MH \\perp HA\\) и \\(MH \\perp HB\\) <span class='step-reason'>(по определению прямой, перпендикулярной к плоскости)</span>.",
+          "Следовательно, треугольники \\(\\triangle MHA\\) и \\(\\triangle MHB\\) — прямоугольные (\\(\\angle MHA = \\angle MHB = 90^\\circ\\)).",
+          "В прямоугольных треугольниках \\(\\triangle MHA\\) и \\(\\triangle MHB\\): катет \\(MH\\) — общий, гипотенузы \\(MA = MB\\) (по условию). Значит, \\(\\triangle MHA = \\triangle MHB\\) <span class='step-reason'>(по гипотенузе и катету)</span>.",
+          "Из равенства треугольников следует равенство вторых катетов: \\[HA = HB \\quad \\text{(как соответственные стороны равных треугольников).}\\] Что и требовалось доказать."
         ],
-        answer: "\\(\\sqrt{b^2 + \\frac{a^2}{2}}\\) (или \\(\\sqrt{82}\\text{ см}\\); \\(4\\sqrt{6}\\text{ см}\\))",
-        plainCopy: "№ 120.\nДано: ABCD — квадрат, AB = a, AC ∩ BD = O, OK ⊥ (ABC), OK = b.\nНайти: KA, KB, KC, KD.\nРешение:\n1) OA = OB = OC = OD = a√2 / 2 (по свойству диагоналей квадрата).\n2) Т.к. OK ⊥ (ABC), то ∠KOA = 90° и △KOA = △KOB = △KOC = △KOD (по двум катетам).\n3) По т. Пифагора из △KOA: KA = √(OK² + OA²) = √(b² + a²/2).\nОтвет: √(b² + a²/2)."
-      },
-
-      "121": {
-        id: "121",
-        bookNum: "№ 121",
-        topic: "Медиана прямоугольного треугольника в пространстве",
-        statement: "В треугольнике \\(ABC\\) дано: \\(\\angle C = 90^\\circ\\), \\(AC = 6\\text{ см}\\), \\(BC = 8\\text{ см}\\), \\(CM\\) — медиана. Через вершину \\(C\\) проведена прямая \\(CK\\), перпендикулярная к плоскости треугольника \\(ABC\\), причем \\(CK = 12\\text{ см}\\). Найдите \\(KM\\).",
-        dano: "\\(\\triangle ABC\\) (\\(\\angle C = 90^\\circ\\)), \\(AC = 6\\text{ см}\\), \\(BC = 8\\text{ см}\\), \\(AM = MB\\), \\(CK \\perp (ABC)\\), \\(CK = 12\\text{ см}\\).",
-        goalTitle: "Найти",
-        goal: "\\(KM\\).",
-        svgKey: "task121",
-        solutionTitle: "Решение",
-        steps: [
-          "В прямоугольном \\(\\triangle ABC\\) (\\(\\angle C = 90^\\circ\\)) найдем гипотенузу \\(AB\\) <span class='justification'>(по теореме Пифагора)</span>:<br>\\[AB = \\sqrt{AC^2 + BC^2} = \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10\\text{ (см)}.\\]",
-          "Медиана прямоугольного треугольника, проведенная к гипотенузе, равна половине гипотенузы <span class='justification'>(по свойству медианы прямоугольного треугольника)</span>:<br>\\[CM = \\frac{1}{2}AB = \\frac{10}{2} = 5\\text{ (см)}.\\]",
-          "Так как \\(CK \\perp (ABC)\\) и \\(CM \\subset (ABC)\\), то \\(CK \\perp CM\\) (\\(\\angle KCM = 90^\\circ\\)) <span class='justification'>(по определению прямой, перпендикулярной к плоскости)</span>.",
-          "Из прямоугольного \\(\\triangle KCM\\) <span class='justification'>(по теореме Пифагора)</span>:<br>\\[KM = \\sqrt{CK^2 + CM^2} = \\sqrt{12^2 + 5^2} = \\sqrt{144 + 25} = \\sqrt{169} = 13\\text{ (см)}.\\]<span class='justification'>(Для карандашной пометки \\(CK = 6\\text{ см}\\): \\(KM = \\sqrt{6^2 + 5^2} = \\sqrt{61}\\text{ см}\\)).</span>"
-        ],
-        answer: "\\(13\\text{ см}\\)",
-        plainCopy: "№ 121.\nДано: △ABC (∠C = 90°), AC = 6 см, BC = 8 см, CM — медиана, CK ⊥ (ABC), CK = 12 см.\nНайти: KM.\nРешение:\n1) Из прямоугольного △ABC по т. Пифагора: AB = √(AC² + BC²) = √(36 + 64) = 10 (см).\n2) По свойству медианы прямоугольного треугольника, проведенной к гипотенузе: CM = AB / 2 = 5 (см).\n3) Т.к. CK ⊥ (ABC) и CM ⊂ (ABC), то CK ⊥ CM (∠KCM = 90°).\n4) Из прямоугольного △KCM по т. Пифагора: KM = √(CK² + CM²) = √(144 + 25) = √169 = 13 (см).\nОтвет: 13 см."
+        answer: "\\(HA = HB\\) (доказано)",
+        shortCheat: "№139(а): △MHA = △MHB по гип. и катету ⇒ HA = HB",
+        blueprintKey: "139a"
       }
     };
 
-    /* Конфигурация вариантов строго по записи на классной доске */
+    // Распределение задач по вариантам в точном соответствии с классной доской (Фото 1)
     const VARIANTS_CONFIG = {
-      v1: {
+      1: {
         name: "Вариант 1 (В-1)",
-        shortIsland: "В-1 • Решено на 5++",
-        quickAnswers: "1) α∥β • 2) единств. • 3) AB=DB • 4) 9 см • 5) MO⊥BD",
-        boardLabel: "В-1 с доски: 1. №123 • 2. №133 • 3. №119(а) • 4. №125 • 5. №129(б)",
-        tasks: [
-          { order: 1, key: "123" },
-          { order: 2, key: "133" },
-          { order: 3, key: "119a" },
-          { order: 4, key: "125" },
-          { order: 5, key: "129b" }
-        ]
+        shortName: "Вар. 1",
+        tasks: ["153", "162", "144", "141", "139b"]
       },
-      v2: {
+      2: {
         name: "Вариант 2 (В-2)",
-        shortIsland: "В-2 • Решено на 5++",
-        quickAnswers: "1) α∥β • 2) единств. • 3) AB=AC • 4) 9 см • 5) BD⊥(AMO)",
-        boardLabel: "В-2 с доски: 1. №123 • 2. №133 • 3. №119(б) • 4. №125 • 5. №129(а)",
-        tasks: [
-          { order: 1, key: "123" },
-          { order: 2, key: "133" },
-          { order: 3, key: "119b" },
-          { order: 4, key: "125" },
-          { order: 5, key: "129a" }
-        ]
-      },
-      extra: {
-        name: "Доп. с фото (№120, №121)",
-        shortIsland: "Доп. • №120, №121 (5++)",
-        quickAnswers: "№120: √(b²+a²/2) • №121: KM = 13 см",
-        boardLabel: "Отмеченные карандашом в учебнике: №120 и №121",
-        tasks: [
-          { order: 1, key: "120" },
-          { order: 2, key: "121" }
-        ]
+        shortName: "Вар. 2",
+        tasks: ["153", "162", "144", "142", "139a"]
       }
     };
 
-    /* Состояние приложения */
-    let currentVariant = "v1";
-    let currentTaskFilter = "all";
+    // =========================================================================
+    // 4. СОСТОЯНИЕ И ЛОГИКА ИНТЕРФЕЙСА APPLE LIQUID GLASS
+    // =========================================================================
+    let currentVariant = 1;
+    let currentTaskFilter = "all"; // "all" или ключ задачи
+    let isIslandCollapsed = false;
 
-    /* Элементы DOM */
-    const cardsStream = document.getElementById("cardsStream");
-    const taskChipsBar = document.getElementById("taskChipsBar");
-    const boardSummaryText = document.getElementById("boardSummaryText");
-    const activePillIndicator = document.getElementById("activePillIndicator");
-    const segmentButtons = document.querySelectorAll(".segment-btn");
-    const appShell = document.getElementById("appShell");
-    const glassDynamicIsland = document.getElementById("glassDynamicIsland");
-    const islandVariantLabel = document.getElementById("islandVariantLabel");
-    const islandQuickAnswer = document.getElementById("islandQuickAnswer");
-    const floatingDock = document.getElementById("floatingDock");
-    const glassToast = document.getElementById("glassToast");
-    const glassToastText = document.getElementById("glassToastText");
-    const zoomModalBackdrop = document.getElementById("zoomModalBackdrop");
-    const zoomModalBody = document.getElementById("zoomModalBody");
-    const zoomModalTitle = document.getElementById("zoomModalTitle");
+    const cardsStreamEl = document.getElementById("cardsStream");
+    const taskFilterBarEl = document.getElementById("taskFilterBar");
+    const activePillIndicatorEl = document.getElementById("activePillIndicator");
+    const tabVar1El = document.getElementById("tabVar1");
+    const tabVar2El = document.getElementById("tabVar2");
+    const topControlDeckEl = document.getElementById("topControlDeck");
+    const glassDynamicIslandEl = document.getElementById("glassDynamicIsland");
+    const islandVariantTextEl = document.getElementById("islandVariantText");
+    const islandQuickAnswerEl = document.getElementById("islandQuickAnswer");
+    const zoomModalBackdropEl = document.getElementById("zoomModalBackdrop");
+    const zoomSvgStageEl = document.getElementById("zoomSvgStage");
+    const zoomModalTitleEl = document.getElementById("zoomModalTitle");
+    const glassToastEl = document.getElementById("glassToast");
 
-    /* Рендеринг математических формул KaTeX */
+    /**
+     * Рендеринг формул KaTeX внутри контейнера
+     */
     function triggerMathRender(container) {
       if (window.renderMathInElement) {
         window.renderMathInElement(container, {
@@ -1919,289 +1860,393 @@
       }
     }
 
-    /* Отрисовка чипсов быстрого перехода по задачам */
-    function renderTaskChips() {
-      const config = VARIANTS_CONFIG[currentVariant];
-      let html = `<button class="task-chip ${currentTaskFilter === "all" ? "active" : ""}" data-filter="all">Все (${config.tasks.length})</button>`;
-      config.tasks.forEach(item => {
-        const prob = PROBLEMS_DB[item.key];
-        const isActive = currentTaskFilter === item.key ? "active" : "";
-        html += `<button class="task-chip ${isActive}" data-filter="${item.key}">${item.order}. ${prob.bookNum}</button>`;
-      });
-      taskChipsBar.innerHTML = html;
+    /**
+     * Рендеринг панели быстрого переключения по номерам задач
+     */
+    function renderTaskFilterPills() {
+      const taskKeys = VARIANTS_CONFIG[currentVariant].tasks;
+      let html = `
+        <button class="task-filter-btn ${currentTaskFilter === 'all' ? 'active' : ''}" data-task="all">
+          Все 5 задач
+        </button>
+      `;
 
-      taskChipsBar.querySelectorAll(".task-chip").forEach(chip => {
-        chip.addEventListener("click", () => {
-          currentTaskFilter = chip.getAttribute("data-filter");
-          renderTaskChips();
-          animateAndRenderCards();
+      taskKeys.forEach((key, index) => {
+        const prob = PROBLEMS_DB[key];
+        const isActive = currentTaskFilter === key ? "active" : "";
+        html += `
+          <button class="task-filter-btn ${isActive}" data-task="${key}">
+            ${index + 1}. ${prob.ref}
+          </button>
+        `;
+      });
+
+      taskFilterBarEl.innerHTML = html;
+
+      taskFilterBarEl.querySelectorAll(".task-filter-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          currentTaskFilter = btn.dataset.task;
+          renderTaskFilterPills();
+          renderProblemCards(true);
+          updateDynamicIslandInfo();
         });
       });
     }
 
-    /* Генерация карточек выбранного варианта */
-    function renderCards() {
-      const config = VARIANTS_CONFIG[currentVariant];
-      boardSummaryText.querySelector("span").textContent = config.boardLabel;
-      islandVariantLabel.textContent = config.shortIsland;
-      islandQuickAnswer.textContent = config.quickAnswers;
+    /**
+     * Обновление текста в Стеклянном Острове-Капле
+     */
+    function updateDynamicIslandInfo() {
+      const vConf = VARIANTS_CONFIG[currentVariant];
+      islandVariantTextEl.textContent = `${vConf.shortName} • Решено на 5++`;
 
-      const filteredTasks = currentTaskFilter === "all"
-        ? config.tasks
-        : config.tasks.filter(t => t.key === currentTaskFilter);
+      if (currentTaskFilter === "all") {
+        const fourthKey = vConf.tasks[3];
+        const fourthAns = PROBLEMS_DB[fourthKey].shortCheat;
+        islandQuickAnswerEl.textContent = fourthAns;
+      } else {
+        islandQuickAnswerEl.textContent = PROBLEMS_DB[currentTaskFilter].shortCheat;
+      }
+    }
 
-      cardsStream.innerHTML = filteredTasks.map(item => {
-        const prob = PROBLEMS_DB[item.key];
-        const svgMarkup = SVG_DRAWINGS[prob.svgKey] ? SVG_DRAWINGS[prob.svgKey]() : "";
-        const stepsHtml = prob.steps.map((step, idx) => `
-          <li class="step-item">
-            <span class="step-num">${idx + 1}</span>
-            <div class="step-text">${step}</div>
-          </li>
-        `).join("");
+    /**
+     * Генерация карточек заданий выбранного варианта
+     */
+    function renderProblemCards(animate = false) {
+      const taskKeys = VARIANTS_CONFIG[currentVariant].tasks;
+      const filteredKeys = currentTaskFilter === "all"
+        ? taskKeys
+        : taskKeys.filter((k) => k === currentTaskFilter);
 
-        return `
-          <article class="task-card liquid-glass" data-problem-key="${prob.id}">
-            <div class="task-card-header">
-              <div class="task-number-group">
-                <span class="task-order-pill">Задание ${item.order}</span>
-                <span class="task-book-num">${prob.bookNum}</span>
-                <span class="task-topic-tag">${prob.topic}</span>
-              </div>
-              <div class="card-actions">
-                <button class="mini-glass-btn copy-task-btn" data-key="${prob.id}" title="Скопировать решение">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </svg>
-                  <span>Копировать</span>
-                </button>
-              </div>
-            </div>
+      const buildMarkup = () => {
+        cardsStreamEl.innerHTML = filteredKeys.map((key) => {
+          const orderNum = taskKeys.indexOf(key) + 1;
+          const p = PROBLEMS_DB[key];
+          const svgMarkup = BLUEPRINTS[p.blueprintKey]();
 
-            <div class="problem-statement">${prob.statement}</div>
-
-            <!-- Тетрадный лист в клетку (24px = 1 клетка) -->
-            <div class="russian-notebook-sheet">
-              <!-- Чертеж строго по узлам клеток -->
-              <div class="drawing-box" data-svg-key="${prob.svgKey}" data-title="${prob.bookNum} • Чертеж по клеткам">
-                <div class="drawing-toolbar">
-                  <span class="grid-snap-badge">Сетка: 24px = 1 кл.</span>
-                  <span class="zoom-hint-pill">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          return `
+            <article class="problem-glass-card" data-key="${key}">
+              <div class="problem-card-header">
+                <div class="problem-badge-group">
+                  <span class="task-num-pill">Задание ${orderNum}</span>
+                  <span class="textbook-ref-pill">${p.ref}</span>
+                  <span class="topic-tag">${p.topic}</span>
+                </div>
+                <div class="card-tools">
+                  <button class="tool-pill-btn zoom-trigger-btn" data-key="${key}" title="Открыть чертеж во весь экран">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                       <circle cx="11" cy="11" r="8"></circle>
                       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                       <line x1="11" y1="8" x2="11" y2="14"></line>
                       <line x1="8" y1="11" x2="14" y2="11"></line>
                     </svg>
-                    На весь экран
-                  </span>
-                </div>
-                ${svgMarkup}
-              </div>
-
-              <!-- Дано и Найти / Доказать -->
-              <div class="academic-grid">
-                <div class="academic-box">
-                  <div class="academic-title">Дано:</div>
-                  <div class="academic-content">${prob.dano}</div>
-                </div>
-                <div class="academic-box">
-                  <div class="academic-title">${prob.goalTitle}:</div>
-                  <div class="academic-content">${prob.goal}</div>
+                    <span>Чертеж</span>
+                  </button>
+                  <button class="tool-pill-btn copy-card-btn" data-key="${key}" data-order="${orderNum}" title="Скопировать решение задачи">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>Копия</span>
+                  </button>
                 </div>
               </div>
 
-              <!-- Пошаговое решение / доказательство -->
-              <div class="solution-section-title">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="9 11 12 14 22 4"></polyline>
-                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                </svg>
-                <span>${prob.solutionTitle}:</span>
+              <!-- Лист российской тетради в клетку (24px) -->
+              <div class="notebook-sheet">
+                <div class="statement-banner">
+                  <strong>Условие (${p.ref}):</strong> ${p.statement}
+                </div>
+
+                <div class="academic-top-grid">
+                  <!-- Блок ДАНО и НАЙТИ/ДОКАЗАТЬ -->
+                  <div class="dano-box">
+                    <div>
+                      <div class="academic-section-label">Дано:</div>
+                      <div class="dano-list">
+                        ${p.dano.map((line) => `<div>${line}</div>`).join("")}
+                      </div>
+                    </div>
+                    <div class="dano-divider"></div>
+                    <div>
+                      <div class="academic-section-label">${p.goalType}:</div>
+                      <div class="dano-list" style="font-weight: 700;">${p.goal}</div>
+                    </div>
+                  </div>
+
+                  <!-- Блок ЧЕРТЕЖА с привязкой к узлам 24px -->
+                  <div>
+                    <div class="blueprint-frame" data-key="${key}" role="button" tabindex="0" aria-label="Увеличить чертеж ${p.ref}">
+                      ${svgMarkup}
+                      <div class="blueprint-zoom-badge">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <polyline points="9 21 3 21 3 15"></polyline>
+                          <line x1="21" y1="3" x2="14" y2="10"></line>
+                          <line x1="3" y1="21" x2="10" y2="14"></line>
+                        </svg>
+                        <span>Сетка 24px • Нажми для зума</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Пошаговое РЕШЕНИЕ / ДОКАЗАТЕЛЬСТВО -->
+                <div class="solution-block">
+                  <div class="academic-section-label">
+                    ${p.goalType === "Доказать" ? "Доказательство (Решение):" : "Решение:"}
+                  </div>
+                  <div class="solution-steps">
+                    ${p.steps.map((step, idx) => `
+                      <div class="step-row">
+                        <div class="step-index">${idx + 1}</div>
+                        <div class="step-text">${step}</div>
+                      </div>
+                    `).join("")}
+                  </div>
+                </div>
+
+                <!-- ОТВЕТ -->
+                <div class="answer-capsule">
+                  <div class="answer-label">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>Ответ:</span>
+                  </div>
+                  <div class="answer-value">${p.answer}</div>
+                </div>
               </div>
+            </article>
+          `;
+        }).join("");
 
-              <ol class="steps-list">
-                ${stepsHtml}
-              </ol>
+        triggerMathRender(cardsStreamEl);
+        bindCardInteractions();
+      };
 
-              <!-- Ответ / Ч.т.д. -->
-              <div class="answer-banner">
-                <span class="answer-label">Ответ:</span>
-                <span class="answer-value">${prob.answer}</span>
-              </div>
-            </div>
-          </article>
-        `;
-      }).join("");
-
-      triggerMathRender(cardsStream);
-      attachCardEvents();
-    }
-
-    /* Анимированная смена карточек при переключении вариантов */
-    function animateAndRenderCards() {
-      cardsStream.classList.add("switching");
-      setTimeout(() => {
-        renderCards();
-        cardsStream.classList.remove("switching");
-      }, 210);
-    }
-
-    /* Обработчики кнопок внутри карточек (копирование и зум чертежа) */
-    function attachCardEvents() {
-      document.querySelectorAll(".copy-task-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const key = btn.getAttribute("data-key");
-          const prob = PROBLEMS_DB[key];
-          if (prob) {
-            copyTextToClipboard(prob.plainCopy, `Скопировано: ${prob.bookNum}`);
-          }
-        });
-      });
-
-      document.querySelectorAll(".drawing-box").forEach(box => {
-        box.addEventListener("click", () => {
-          const svgKey = box.getAttribute("data-svg-key");
-          const title = box.getAttribute("data-title");
-          if (SVG_DRAWINGS[svgKey]) {
-            zoomModalTitle.textContent = title;
-            zoomModalBody.innerHTML = SVG_DRAWINGS[svgKey]();
-            zoomModalBackdrop.classList.add("open");
-          }
-        });
-      });
-    }
-
-    /* Переключение вариантов в парящей капсуле (Squish & Stretch физика) */
-    segmentButtons.forEach((btn, index) => {
-      btn.addEventListener("click", () => {
-        const selectedVariant = btn.getAttribute("data-variant");
-        if (selectedVariant === currentVariant) return;
-
-        currentVariant = selectedVariant;
-        currentTaskFilter = "all";
-
-        segmentButtons.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-
-        activePillIndicator.style.transform = `translateX(${index * 100}%) scaleX(1.08) scaleY(0.92)`;
+      if (animate) {
+        cardsStreamEl.classList.add("switching-out");
         setTimeout(() => {
-          activePillIndicator.style.transform = `translateX(${index * 100}%) scaleX(1) scaleY(1)`;
-        }, 260);
-
-        renderTaskChips();
-        animateAndRenderCards();
-      });
-    });
-
-    /* Сворачивание в «Стеклянный Остров-Каплю» (Glass Dynamic Island) */
-    function minimizeToGlassIsland() {
-      appShell.classList.add("minimized");
-      floatingDock.classList.add("hidden");
-      glassDynamicIsland.classList.add("active");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    function expandFromGlassIsland() {
-      glassDynamicIsland.classList.remove("active");
-      appShell.classList.remove("minimized");
-      floatingDock.classList.remove("hidden");
-    }
-
-    document.getElementById("minimizeToIslandBtn").addEventListener("click", minimizeToGlassIsland);
-    document.getElementById("dockMinimizeBtn").addEventListener("click", minimizeToGlassIsland);
-    glassDynamicIsland.addEventListener("click", expandFromGlassIsland);
-
-    /* Переключение режима «Чистый вид в тетрадь» */
-    const cleanModeBtn = document.getElementById("cleanModeBtn");
-    cleanModeBtn.addEventListener("click", () => {
-      document.body.classList.toggle("clean-notebook-view");
-      const isClean = document.body.classList.contains("clean-notebook-view");
-      cleanModeBtn.classList.toggle("active", isClean);
-      cleanModeBtn.textContent = isClean ? "Полный вид" : "Чистый вид";
-    });
-
-    /* Переключение отображения координат узлов клеток (k, m) */
-    const toggleCoordsBtn = document.getElementById("toggleCoordsBtn");
-    toggleCoordsBtn.addEventListener("click", () => {
-      document.body.classList.toggle("show-grid-coords");
-      const active = document.body.classList.contains("show-grid-coords");
-      showGlassToast(active ? "Узлы клеток (k; m) включены" : "Узлы клеток скрыты");
-    });
-
-    document.getElementById("modalToggleCoordsBtn").addEventListener("click", () => {
-      zoomModalBody.classList.toggle("show-grid-coords");
-    });
-
-    /* Закрытие модального окна чертежа */
-    document.getElementById("closeZoomModalBtn").addEventListener("click", () => {
-      zoomModalBackdrop.classList.remove("open");
-    });
-    zoomModalBackdrop.addEventListener("click", (e) => {
-      if (e.target === zoomModalBackdrop) {
-        zoomModalBackdrop.classList.remove("open");
+          buildMarkup();
+          cardsStreamEl.classList.remove("switching-out");
+        }, 210);
+      } else {
+        buildMarkup();
       }
-    });
+    }
 
-    /* Переключение Светлой / Темной темы */
-    const themeToggleBtn = document.getElementById("themeToggleBtn");
-    themeToggleBtn.addEventListener("click", () => {
-      const htmlEl = document.documentElement;
-      const nextTheme = htmlEl.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      htmlEl.setAttribute("data-theme", nextTheme);
-    });
+    /**
+     * Переключение между Вариантом 1 и Вариантом 2 с анимацией упругой капли
+     */
+    function switchVariant(variantNum) {
+      if (currentVariant === variantNum) return;
+      currentVariant = variantNum;
+      currentTaskFilter = "all";
 
-    /* Надежное копирование в буфер обмена через document.execCommand('copy') */
-    function copyTextToClipboard(text, message) {
-      const textarea = document.createElement("textarea");
-      textarea.value = text;
-      textarea.style.position = "fixed";
-      textarea.style.left = "-9999px";
-      document.body.appendChild(textarea);
-      textarea.select();
+      // Пружинная деформация ползунка-капли (squish & stretch)
+      activePillIndicatorEl.classList.add("squish-moving");
+      activePillIndicatorEl.style.transform = variantNum === 1
+        ? "translateX(0%) scaleX(1.08) scaleY(0.92)"
+        : "translateX(100%) scaleX(1.08) scaleY(0.92)";
+
+      setTimeout(() => {
+        activePillIndicatorEl.classList.remove("squish-moving");
+        activePillIndicatorEl.style.transform = variantNum === 1
+          ? "translateX(0%)"
+          : "translateX(100%)";
+      }, 260);
+
+      tabVar1El.classList.toggle("active", variantNum === 1);
+      tabVar2El.classList.toggle("active", variantNum === 2);
+      tabVar1El.setAttribute("aria-selected", variantNum === 1);
+      tabVar2El.setAttribute("aria-selected", variantNum === 2);
+
+      renderTaskFilterPills();
+      renderProblemCards(true);
+      updateDynamicIslandInfo();
+    }
+
+    /**
+     * Сворачивание и разворачивание в Стеклянный Остров-Каплю (Dynamic Island)
+     */
+    function setIslandCollapsedState(collapsed) {
+      isIslandCollapsed = collapsed;
+      topControlDeckEl.classList.toggle("deck-collapsed", collapsed);
+      glassDynamicIslandEl.classList.toggle("island-visible", collapsed);
+      document.getElementById("dockIslandToggleBtn").classList.toggle("active-dock", collapsed);
+      document.getElementById("dockIslandLabel").textContent = collapsed ? "Развернуть" : "Остров";
+    }
+
+    /**
+     * Открытие модального окна детального просмотра чертежа по клеткам
+     */
+    function openBlueprintZoomModal(probKey) {
+      const p = PROBLEMS_DB[probKey];
+      zoomModalTitleEl.textContent = `Чертеж к задаче ${p.ref} • Шаг клетки 24px`;
+      zoomSvgStageEl.style.width = "100%";
+      zoomSvgStageEl.innerHTML = BLUEPRINTS[p.blueprintKey]();
+      zoomModalBackdropEl.classList.add("open");
+    }
+
+    /**
+     * Копирование текста без использования запрещенного alert()
+     */
+    function copyPlainText(text, toastMessage) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
       try {
         document.execCommand("copy");
-        showGlassToast(message || "Скопировано в буфер обмена");
-      } catch (err) {
-        showGlassToast("Не удалось скопировать");
-      }
-      document.body.removeChild(textarea);
-    }
+      } catch (e) {}
+      document.body.removeChild(ta);
 
-    /* Копирование всего текущего варианта целиком */
-    document.getElementById("dockCopyAllBtn").addEventListener("click", () => {
-      const config = VARIANTS_CONFIG[currentVariant];
-      const fullText = config.tasks
-        .map(t => PROBLEMS_DB[t.key].plainCopy)
-        .join("\n\n----------------------------------\n\n");
-      copyTextToClipboard(fullText, `${config.name} полностью скопирован!`);
-    });
-
-    let toastTimer = null;
-    function showGlassToast(msg) {
-      glassToastText.textContent = msg;
-      glassToast.classList.add("show");
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(() => {
-        glassToast.classList.remove("show");
+      glassToastEl.textContent = toastMessage;
+      glassToastEl.classList.add("show");
+      setTimeout(() => {
+        glassToastEl.classList.remove("show");
       }, 2400);
     }
 
-    /* Плавающая каустика света за движением пальца / курсора */
-    const causticGlow = document.getElementById("causticGlow");
-    window.addEventListener("pointermove", (e) => {
-      causticGlow.style.transform = `translate(${e.clientX - 160}px, ${e.clientY - 160}px)`;
-    }, { passive: true });
+    /**
+     * Форматирование чистого текста задачи для копирования в буфер обмена
+     */
+    function formatProblemForClipboard(probKey, orderNum) {
+      const p = PROBLEMS_DB[probKey];
+      const clean = (str) => str
+        .replace(/\\\[|\\\]|\\\(|\\\)/g, "")
+        .replace(/<[^>]+>/g, "")
+        .replace(/\\perp/g, "⊥")
+        .replace(/\\parallel/g, "||")
+        .replace(/\\alpha/g, "α")
+        .replace(/\\beta/g, "β")
+        .replace(/\\varphi_0/g, "φ₀")
+        .replace(/\\varphi/g, "φ")
+        .replace(/\\triangle/g, "△")
+        .replace(/\\angle/g, "∠")
+        .replace(/\\subset/g, "⊂")
+        .replace(/\\in/g, "∈")
+        .replace(/\\notin/g, "∉")
+        .replace(/\\cap/g, "∩")
+        .replace(/\\neq/g, "≠")
+        .replace(/\\implies/g, "⇒")
+        .replace(/\\cdot/g, "·")
+        .replace(/\\;/g, " ");
 
-    /* Инициализация после загрузки страницы и KaTeX */
+      return [
+        `Задание ${orderNum} (${p.ref})`,
+        `Дано: ${clean(p.dano.join(" "))}`,
+        `${p.goalType}: ${clean(p.goal)}`,
+        `Решение:`,
+        ...p.steps.map((s, i) => `${i + 1}) ${clean(s)}`),
+        `Ответ: ${clean(p.answer)}`
+      ].join("\n");
+    }
+
+    /**
+     * Привязка обработчиков внутри карточек
+     */
+    function bindCardInteractions() {
+      document.querySelectorAll(".blueprint-frame, .zoom-trigger-btn").forEach((el) => {
+        el.addEventListener("click", () => {
+          openBlueprintZoomModal(el.dataset.key);
+        });
+      });
+
+      document.querySelectorAll(".copy-card-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const key = btn.dataset.key;
+          const order = btn.dataset.order;
+          const text = formatProblemForClipboard(key, order);
+          copyPlainText(text, `${PROBLEMS_DB[key].ref} скопирован для тетради!`);
+        });
+      });
+    }
+
+    // =========================================================================
+    // 5. ИНИЦИАЛИЗАЦИЯ СОБЫТИЙ ПРИЛОЖЕНИЯ
+    // =========================================================================
     window.addEventListener("DOMContentLoaded", () => {
-      renderTaskChips();
-      renderCards();
-    });
-    window.addEventListener("load", () => {
-      triggerMathRender(document.body);
+      renderTaskFilterPills();
+      renderProblemCards(false);
+      updateDynamicIslandInfo();
+
+      // Переключение вариантов В-1 / В-2
+      tabVar1El.addEventListener("click", () => switchVariant(1));
+      tabVar2El.addEventListener("click", () => switchVariant(2));
+
+      // Сворачивание и разворачивание Стеклянного Острова
+      document.getElementById("collapseIslandBtn").addEventListener("click", () => {
+        setIslandCollapsedState(true);
+      });
+
+      glassDynamicIslandEl.addEventListener("click", () => {
+        setIslandCollapsedState(false);
+      });
+
+      document.getElementById("dockIslandToggleBtn").addEventListener("click", () => {
+        setIslandCollapsedState(!isIslandCollapsed);
+      });
+
+      // Переключение режима «Чистый вид» (бумажная тетрадь без бликов)
+      const cleanViewBtn = document.getElementById("cleanViewToggleBtn");
+      cleanViewBtn.addEventListener("click", () => {
+        document.body.classList.toggle("clean-notebook-mode");
+        cleanViewBtn.classList.toggle("active-dock");
+      });
+
+      // Копирование всего текущего варианта
+      document.getElementById("copyAllVariantBtn").addEventListener("click", () => {
+        const vConf = VARIANTS_CONFIG[currentVariant];
+        const fullText = [
+          `=== ${vConf.name} (Геометрия 10–11, Атанасян) ===`,
+          ...vConf.tasks.map((k, idx) => formatProblemForClipboard(k, idx + 1))
+        ].join("\n\n");
+        copyPlainText(fullText, `${vConf.name} полностью скопирован!`);
+      });
+
+      // Переключение Светлой / Темной темы
+      const themeToggleBtn = document.getElementById("themeToggleBtn");
+      themeToggleBtn.addEventListener("click", () => {
+        const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+        document.documentElement.setAttribute("data-theme", isDark ? "light" : "dark");
+      });
+
+      // Управление модальным окном зума чертежа
+      document.getElementById("closeZoomModalBtn").addEventListener("click", () => {
+        zoomModalBackdropEl.classList.remove("open");
+      });
+
+      zoomModalBackdropEl.addEventListener("click", (e) => {
+        if (e.target === zoomModalBackdropEl) {
+          zoomModalBackdropEl.classList.remove("open");
+        }
+      });
+
+      document.querySelectorAll("[data-zoom]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          zoomSvgStageEl.style.width = `${btn.dataset.zoom}%`;
+        });
+      });
+
+      // Плавающий блик каустики за курсором или касанием пальца
+      const causticGlowEl = document.getElementById("causticGlow");
+      const moveCaustic = (x, y) => {
+        causticGlowEl.style.transform = `translate3d(${x - 160}px, ${y - 160}px, 0)`;
+      };
+      window.addEventListener("mousemove", (e) => moveCaustic(e.clientX, e.clientY), { passive: true });
+      window.addEventListener("touchmove", (e) => {
+        if (e.touches[0]) moveCaustic(e.touches[0].clientX, e.touches[0].clientY);
+      }, { passive: true });
+
+      // Повторный вызов KaTeX после полной загрузки скриптов CDN
+      window.addEventListener("load", () => {
+        triggerMathRender(document.body);
+      });
     });
   </script>
 </body>
