@@ -1,23 +1,34 @@
-name: Point GitHub Pages at this branch
+name: Deploy site to GitHub Pages
 
 on:
   push:
-    paths:
-      - '.github/workflows/pages-source.yml'
+    branches:
+      - 'arena/2d72700a-practice-work'
 
 permissions:
   contents: read
   pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
 
 jobs:
-  configure:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Set Pages source branch
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+      - name: Stage static site
         run: |
-          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/pages" \
-            -f "source[branch]=${GITHUB_REF_NAME}" \
-            -f "source[path]=/" \
-            --jq '{status, html_url, source}'
+          mkdir -p _site
+          cp -r index.html sw.js manifest.webmanifest icon-192.svg icon-512.svg originals .nojekyll _site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
