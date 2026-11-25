@@ -1,13 +1,13 @@
 # GitHub Pages deploy
 
-Сайт публикуется с корня этой ветки (`arena/2d72700a-practice-work`) через GitHub Pages:
-https://yogern.github.io/Practice-Work/
+Статический сайт «Цифровая тетрадь-конспект · География v2.0.2» опубликован на GitHub Pages:
+https://yogern.github.io/
+
+Весь сайт лежит в корне ветки: `index.html`, `sw.js`, `manifest.webmanifest`, иконки и `originals/*.webp`.
+Файл `.nojekyll` отключает обработку Jekyll, чтобы все файлы публиковались как есть.
 
 ## Как обновить сайт
 
-1. Положите `index.html` (и нужные ассеты) в корень репозитория.
-2. `git add . && git commit -m "Update site" && git push origin HEAD`
-3. GitHub Pages автоматически пересоберёт сайт за ~30 секунд.
-
-Файл `.nojekyll` отключает обработку Jekyll, чтобы все файлы (в том числе `originals/*.webp`) публиковались как есть.
-`sw.js` — service worker для офлайн-кэша, `manifest.webmanifest` — PWA-манифест.
+1. Замените `index.html` и/или ассеты в корне репозитория.
+2. `git add . && git commit -m "Update site" && git push`
+3. GitHub Pages автоматически обновит сайт примерно за 30 секунд.
