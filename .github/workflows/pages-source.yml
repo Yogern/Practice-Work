@@ -1,0 +1,24 @@
+name: Point GitHub Pages at this branch
+
+on:
+  push:
+    paths:
+      - '.github/workflows/pages-source.yml'
+
+permissions:
+  contents: read
+  pages: write
+  administration: write
+
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Pages source branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh api -X PATCH "repos/${GITHUB_REPOSITORY}/pages" \
+            -f "source[branch]=${GITHUB_REF_NAME}" \
+            -f "source[path]=/" \
+            --jq '{status, html_url, source}'
